@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID TEST and VACCINATION System</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assests/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="assests/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assests/css/jquery-ui.css">
+    <link rel="stylesheet" href="assests/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assests/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assests/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="assests/css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="assests/css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="assests/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="assests/fonts/flaticon-covid/font/flaticon.css">
+
+    <link rel="stylesheet" href="assests/css/aos.css">
+
+    <link rel="stylesheet" href="assests/css/style.css">
+
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    
+
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+        </div>
+
+        
+        <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+
+        <div class="container">
+            <div class="row align-items-center">
+
+            <div class="col-6 col-xl-2">
+                <div class="mb-0 site-logo"><a href="index.html" class="mb-0">Covid<span class="text-primary">.</span> </a></div>
+            </div>
+
+            <div class="col-12 col-md-10 d-none d-xl-block">
+                <nav class="site-navigation position-relative text-right" role="navigation">
+
+                <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                    <li class="active"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="has-children">
+                    <a href="prevention.html" class="nav-link">Prevention</a>
+                    <ul class="dropdown">
+                        <li><a href="#" class="nav-link">Stay at home</a></li>
+                        <li><a href="#" class="nav-link">Keep social distancing</a></li>
+                        <li><a href="#" class="nav-link">Wear facemasl</a></li>
+                        <li><a href="#" class="nav-link">Wash your hands</a></li>
+                        <li class="has-children">
+                        <a href="#">More Links</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Menu One</a></li>
+                            <li><a href="#">Menu Two</a></li>
+                            <li><a href="#">Menu Three</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                    </li>
+                    <li><a href="symptoms.html" class="nav-link">Symptoms</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+
+
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                </nav>
+            </div>
+
+
+            <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
+
+            </div>
+        </div>
+
+        </header>
+
+        
+
+        <div class="hero-v1">
+        <div class="container">
+            <div class="row align-items-center">
+            <div class="col-lg-6 mr-auto text-center text-lg-left">
+                <span class="d-block subheading">Covid-19 Awareness</span>
+                <h1 class="heading mb-3">Stay Safe. Stay Home.</h1>
+                <p class="mb-5">To stay safe during the COVID-19 pandemic, it's crucial to stay home as much as possible, reducing your exposure to the virus.</p>
+                <p class="mb-4"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#prevent">How to prevent</a></p>
+
+
+                
+                <!-- Modal -->
+                <div class="modal fade" id="prevent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">How to prevent from Corona Virus?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <p>To prevent the spread of the coronavirus, follow these key guidelines:</p>
+                    <p><b>1. Practice Good Hygiene:</b> Wash your hands frequently with soap and water for at least 20 seconds, use hand sanitizer with at least 60% alcohol, and avoid touching your face.</p>
+                    <p><b>2. Wear a Mask:</b> Wear a mask that covers your nose and mouth in public settings, especially where social distancing measures are difficult to maintain.</p>
+                    <p><b>3. Maintain Social Distance:</b> Keep a distance of at least 6 feet (about 2 meters) from others, particularly those who are not in your household.</p>
+                    <p><b>4. Avoid Crowded Places and Close Contact:</b> Avoid large gatherings and close contact with individuals who are sick.</p>
+                    <p><b>5. Clean and Disinfect:</b> Regularly clean and disinfect frequently touched surfaces daily, such as doorknobs, light switches, and phones.</p>
+                    <p><b>6. Monitor Your Health:</b> Be alert for symptoms such as fever, cough, and shortness of breath. If you feel unwell, stay home and seek medical advice.</p>
+                    <p><b>7. Get Vaccinated:</b> Receive the COVID-19 vaccine and any recommended booster doses to help protect against severe illness and reduce the spread of the virus.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                </div>
+                </div>  <!-- Modal -->
+
+
+            </div>
+            <div class="col-lg-6">
+                <figure class="illustration">
+                <img src="assests/images/illustration.png" alt="Image" class="img-fluid">
+                </figure>
+            </div>
+            <div class="col-lg-6"></div>
+            </div>
+        </div>
+        </div>
+
+
+        <!-- MAIN -->
+        
+        <div class="site-section stats">
+        <div class="container">
+            <div class="row mb-3">
+            <div class="col-lg-7 text-center mx-auto">
+                <h2 class="section-heading">Coronavirus Statistics</h2>
+                <p>Coronavirus statistics track the number of confirmed cases, recoveries, and deaths globally, providing crucial data for understanding the spread and impact of the virus.</p>
+            </div>
+            </div>
+            <div class="row"> 
+            <div class="col-lg-4">
+                <div class="data">
+                <span class="icon text-primary">
+                    <span class="flaticon-virus"></span>
+                </span>
+                <strong class="d-block number">14,112,077</strong>
+                <span class="label">Active Cases</span>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="data">
+                <span class="icon text-primary">
+                    <span class="flaticon-virus"></span>
+                </span>
+                <strong class="d-block number">595,685</strong>
+                <span class="label">Deaths</span>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="data">
+                <span class="icon text-primary">
+                    <span class="flaticon-virus"></span>
+                </span>
+                <strong class="d-block number">8,397,665</strong>
+                <span class="label">Recovered Cases</span>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="site-section">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <figure class="img-play-vid">
+                <img src="assests/images/hero_1.jpg" alt="Image" class="img-fluid">
+                <div class="absolute-block d-flex">
+                    <span class="text">Watch the Video</span>
+                    <a href="https://youtu.be/fPbYaTKKtmA?si=6FRk8cCeg5f9AS_S" data-fancybox class="btn-play">
+                    <span class="icon-play"></span>
+                    </a>
+                </div>
+                </figure>
+            </div>
+            <div class="col-lg-5 ml-auto">
+                <h2 class="mb-4 section-heading">What is Coronavirus?</h2>
+                <p>Coronavirus is a type of virus that can cause respiratory illnesses in humans, ranging from the common cold to more severe diseases like COVID-19. COVID-19, caused by the novel coronavirus SARS-CoV-2, emerged in late 2019 and led to a global pandemic.</p>
+                <p class="mt-5"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#coronavirus">Learn more</a></p>
+
+                <!-- Modal -->
+                <div class="modal fade" id="coronavirus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">What is Coronavirus?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <p><b>1. Virus Family:</b> Coronaviruses are a large family of viruses that can cause illnesses in animals and humans, ranging from the common cold to more severe diseases such as MERS and SARS.</p>
+                    <p><b>2. COVID-19 Cause:</b> The novel coronavirus, SARS-CoV-2, is responsible for causing COVID-19, which emerged in Wuhan, China, in late 2019.</p>
+                    <p><b>3. Transmission:</b> It primarily spreads through respiratory droplets from coughs, sneezes, or talking, and can also spread by touching surfaces contaminated with the virus.</p>
+                    <p><b>4. Symptoms:</b> Common symptoms include fever, cough, and shortness of breath, but it can also cause fatigue, loss of taste or smell, and more severe respiratory issues.</p>
+                    <p><b>5. Global Impact:</b> The COVID-19 pandemic has led to widespread health, social, and economic disruptions, resulting in extensive public health measures to control its spread.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                </div>
+                </div>  <!-- Modal -->
+
+
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="container pb-5">
+        <div class="row">
+            <div class="col-lg-3">
+            <div class="feature-v1 d-flex align-items-center">
+                <div class="icon-wrap mr-3">
+                <span class="flaticon-protection"></span>
+                </div>
+                <div>
+                <h3>Protection</h3>
+                <span class="d-block">Lorem ipsum dolor sit.</span>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-3">
+            <div class="feature-v1 d-flex align-items-center">
+                <div class="icon-wrap mr-3">
+                <span class="flaticon-patient"></span>
+                </div>
+                <div>
+                <h3>Prevention</h3>
+                <span class="d-block">Lorem ipsum dolor sit.</span>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-3">
+            <div class="feature-v1 d-flex align-items-center">
+                <div class="icon-wrap mr-3">
+                <span class="flaticon-hand-sanitizer"></span>
+                </div>
+                <div>
+                <h3>Treatments</h3>
+                <span class="d-block">Lorem ipsum dolor sit.</span>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-3">
+            <div class="feature-v1 d-flex align-items-center">
+                <div class="icon-wrap mr-3">
+                <span class="flaticon-virus"></span>
+                </div>
+                <div>
+                <h3>Symptoms</h3>
+                <span class="d-block">Lorem ipsum dolor sit.</span>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="site-section bg-primary-light">
+        <div class="container">
+            <div class="row align-items-center">
+            <div class="col-lg-6">
+
+                <div class="row">
+                <div class="col-6 col-lg-6 mt-lg-5">
+                    <div class="media-v1 bg-1">
+                    <div class="icon-wrap">
+                        <span class="flaticon-stay-at-home"></span>
+                    </div>
+                    <div class="body">
+                        <h3>Stay at home</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, debitis!</p>
+                    </div>
+                    </div>
+
+                    <div class="media-v1 bg-1">
+                    <div class="icon-wrap">
+                        <span class="flaticon-patient"></span>
+                    </div>
+                    <div class="body">
+                        <h3>Wear facemask</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, debitis!</p>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-6">
+                    <div class="media-v1 bg-1">
+                    <div class="icon-wrap">
+                        <span class="flaticon-social-distancing"></span>
+                    </div>
+                    <div class="body">
+                        <h3>Keep social distancing</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, debitis!</p>
+                    </div>
+                    </div>
+
+                    <div class="media-v1 bg-1">
+                    <div class="icon-wrap">
+                        <span class="flaticon-hand-washing"></span>
+                    </div>
+                    <div class="body">
+                        <h3>Wash your hands</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, debitis!</p>
+                    </div>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            <div class="col-lg-5 ml-auto">
+                <h2 class="section-heading mb-4">How to Prevent Coronavirus?</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis doloribus consequatur fugit voluptatum ex rerum perspiciatis cupiditate, esse hic!</p>
+                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, error!</p>
+
+                <ul class="list-check list-unstyled mb-5">
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipisicing elit</li>
+                <li>Unde doloremque</li>
+                </ul>
+
+                <p><a href="#" class="btn btn-primary">Read more about prevention</a></p>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="site-section">
+        <div class="container">
+            <div class="row mb-5">
+            <div class="col-lg-7 mx-auto text-center">
+                <span class="subheading">What you need to do</span>
+                <h2 class="mb-4 section-heading">How To Protect Yourself</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex officia quas, modi sit eligendi numquam!</p>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-lg-6 ">
+                <div class="row mt-5 pt-5">
+                <div class="col-lg-6 do ">
+                    <h3>You should do</h3>
+                    <ul class="list-unstyled check">
+                    <li>Stay at home</li>
+                    <li>Wear mask</li>
+                    <li>Use Sanitizer</li>
+                    <li>Disinfect your home</li>
+                    <li>Wash your hands</li>
+                    <li>Frequent self-isolation</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 dont ">
+                    <h3>You should avoid</h3>
+                    <ul class="list-unstyled cross">
+                    <li>Avoid infected people</li>
+                    <li>Avoid animals</li>
+                    <li>Avoid handshaking</li>
+                    <li>Aviod infected surfaces</li>
+                    <li>Don't touch your face</li>
+                    <li>Avoid droplets</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="assests/images/protect.png" alt="Image" class="img-fluid">
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="site-section bg-primary-light">
+        <div class="container">
+            <div class="row mb-5">
+            <div class="col-lg-7 mx-auto text-center">
+                <h2 class="mb-4 section-heading">Symptoms of Coronavirus</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex officia quas, modi sit eligendi numquam!</p>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                <div class="img">
+                    <img src="assests/images/symptom_high-fever.png" alt="Image" class="img-fluid">
+                </div>
+                <div class="text">
+                    <h3>High Fever</h3>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ipsum repellendus animi modi iure provident, cupiditate perferendis voluptatem!</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                <div class="img">
+                    <img src="assests/images/symptom_cough.png" alt="Image" class="img-fluid">
+                </div>
+                <div class="text">
+                    <h3>Cough</h3>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla ullam illo laborum repellendus vel esse dolor, sunt exercitationem.</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                <div class="img">
+                    <img src="assests/images/symptom_sore-troath.png" alt="Image" class="img-fluid">
+                </div>
+                <div class="text">
+                    <h3>Sore Troath</h3>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum esse voluptatum, vel inventore at! Ullam, libero reiciendis amet?</p>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="symptom d-flex">
+                <div class="img">
+                    <img src="assests/images/symptom_headache.png" alt="Image" class="img-fluid">
+                </div>
+                <div class="text">
+                    <h3>Headache</h3>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus autem voluptatem ratione veniam rerum qui quibusdam reprehenderit quis.</p>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="row justify-content-md-center">
+            <div class="col-lg-10">
+                <div class="note row">
+
+                <div class="col-lg-8 mb-4 mb-lg-0"><strong>Stay at home and call your doctor:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, eaque.</div>
+                <div class="col-lg-4 text-lg-right">
+                    <a href="#" class="btn btn-primary"><span class="icon-phone mr-2 mt-3"></span>Help line</a>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="site-section">
+        <div class="container">
+            <div class="row mb-5">
+            <div class="col-lg-7 mx-auto text-center">
+                <h2 class="mb-4 section-heading">News &amp; Articles</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex officia quas, modi sit eligendi numquam!</p>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-lg-4">
+                <div class="post-entry">
+                <a href="#" class="thumb">
+                    <span class="date">30 Jul, 2020</span>
+                    <img src="assests/images/hero_1.jpg" alt="Image" class="img-fluid">
+                </a>
+                <div class="post-meta text-center">
+                    <a href="">
+                    <span class="icon-user"></span>
+                    <span>Admin</span>
+                    </a>
+                    <a href="#">
+                    <span class="icon-comment"></span>
+                    <span>3 Comments</span>
+                    </a>
+                </div>
+                <h3><a href="#">How Coronavirus Very Contigous</a></h3>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="post-entry">
+                <a href="#" class="thumb">
+                    <span class="date">30 Jul, 2020</span>
+                    <img src="assests/images/hero_2.jpg" alt="Image" class="img-fluid">
+                </a>
+                <div class="post-meta text-center">
+                    <a href="">
+                    <span class="icon-user"></span>
+                    <span>Admin</span>
+                    </a>
+                    <a href="#">
+                    <span class="icon-comment"></span>
+                    <span>3 Comments</span>
+                    </a>
+                </div>
+                <h3><a href="#">How Coronavirus Very Contigous</a></h3>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="post-entry">
+                <a href="#" class="thumb">
+                    <span class="date">30 Jul, 2020</span>
+                    <img src="assests/images/hero_1.jpg" alt="Image" class="img-fluid">
+                </a>
+                <div class="post-meta text-center">
+                    <a href="">
+                    <span class="icon-user"></span>
+                    <span>Admin</span>
+                    </a>
+                    <a href="#">
+                    <span class="icon-comment"></span>
+                    <span>3 Comments</span>
+                    </a>
+                </div>
+                <h3><a href="#">How Coronavirus Very Contigous</a></h3>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-4">
+                <h2 class="footer-heading mb-4">About</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi cumque tenetur inventore veniam, hic vel ipsa necessitatibus ducimus architecto fugiat!</p>
+                <div class="my-5">
+                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                <div class="col-lg-4">
+                    <h2 class="footer-heading mb-4">Quick Links</h2>
+                    <ul class="list-unstyled">
+                    <li><a href="#">Symptoms</a></li>
+                    <li><a href="#">Prevention</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">About Coronavirus</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h2 class="footer-heading mb-4">Helpful Link</h2>
+                    <ul class="list-unstyled">
+                    <li><a href="#">Helathcare Professional</a></li>
+                    <li><a href="#">LGU Facilities</a></li>
+                    <li><a href="#">Protect Your Family</a></li>
+                    <li><a href="#">World Health</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h2 class="footer-heading mb-4">Resources</h2>
+                    <ul class="list-unstyled">
+                    <li><a href="#">WHO Website</a></li>
+                    <li><a href="#">CDC Website</a></li>
+                    <li><a href="#">Gov Website</a></li>
+                    <li><a href="#">DOH Website</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="row text-center">
+            <div class="col-md-12">
+                <div class="border-top pt-5">
+                <p class="copyright"><small>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
+
+                </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+        </div>
+
+    </div> <!-- .site-wrap -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="assests/js/jquery-3.3.1.min.js"></script>
+    <script src="assests/js/jquery-ui.js"></script>
+    <script src="assests/js/popper.min.js"></script>
+    <script src="assests/js/bootstrap.min.js"></script>
+    <script src="assests/js/owl.carousel.min.js"></script>
+    <script src="assests/js/jquery.countdown.min.js"></script>
+    <script src="assests/js/jquery.easing.1.3.js"></script>
+    <script src="assests/js/aos.js"></script>
+    <script src="assests/js/jquery.fancybox.min.js"></script>
+    <script src="assests/js/jquery.sticky.js"></script>
+    <script src="assests/js/isotope.pkgd.min.js"></script>
+
+
+  <script src="assests/js/main.js"></script>
+</body>
+</html>
