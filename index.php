@@ -25,10 +25,10 @@
     <link rel="stylesheet" href="assests/css/aos.css">
 
     <link rel="stylesheet" href="assests/css/style.css">
-
+    
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-    
+
 
     <div class="site-wrap">
 
@@ -77,8 +77,8 @@
                     <li><a href="about.html" class="nav-link">About</a></li>
 
 
-                    <li><a href="blog.html" class="nav-link">Blog</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="login.php" class="nav-link">Login</a></li>
                 </ul>
                 </nav>
             </div>
@@ -619,6 +619,7 @@
     <script src="assests/js/isotope.pkgd.min.js"></script>
 
 
-  <script src="assests/js/main.js"></script>
+     <script src="assests/js/main.js"></script>
+
 </body>
 </html>
