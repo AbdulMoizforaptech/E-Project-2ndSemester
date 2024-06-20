@@ -35,7 +35,7 @@ session_start();
 <body style="background-color: rgba(111, 66, 193, 0.1);">
 
     <div class="container mt-5" style="max-width:600px; width:100%;">
-        <form action="logincode.php" method="POST">
+        <form action="" method="POST">
         <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
@@ -59,7 +59,7 @@ session_start();
                 $_SESSION['admin_session'] = $row['id'];
                 echo 
                 "<script>
-                    alert('login Successfully');
+                    alert('login Successful');
                     window.location.href= 'index.php';
                 </script>";
             } else {
