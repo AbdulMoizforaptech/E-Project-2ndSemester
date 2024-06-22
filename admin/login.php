@@ -35,7 +35,7 @@ session_start();
 <body style="background-color: rgba(111, 66, 193, 0.1);">
 
     <div class="container mt-5" style="max-width:600px; width:100%;">
-        <form action="" method="POST">
+        <form method="POST">
         <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
@@ -51,7 +51,7 @@ session_start();
         if (isset($_POST['login'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $query = "SELECT * FROM tbl_admin WHERE email = '$email' AND password = '$password'";
+            $query = "SELECT * FROM tbl_admin WHERE email = '$email' AND password = '$password' LIMIT 1";
             $result = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($result)> 0){
