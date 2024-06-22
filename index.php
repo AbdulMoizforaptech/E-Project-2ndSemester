@@ -78,8 +78,8 @@
 
 
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li><a href="admin/login.php" class="nav-link">Login</a></li>
-                </ul>
+                    <li><a href="#" class="nav-link" onclick="GoTOLogin()">Login</a></li>
+                </ul>,
                 </nav>
             </div>
 
@@ -609,6 +609,12 @@
 
 
      <script src="assests/js/main.js"></script>
+
+     <script type="text/Javascript">
+        function GoTOLogin(){
+            window.location.href = "admin/login.php"
+        }
+     </script>
 
 </body>
 </html>
