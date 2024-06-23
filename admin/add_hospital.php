@@ -27,7 +27,7 @@ if (!isset($_SESSION['admin_session'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Edit Hospital Details</h1>
+            <h1 class="m-0">Add Hospital</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -45,7 +45,7 @@ if (!isset($_SESSION['admin_session'])){
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <?php
-        $query = "SELECT tbl_hospital.*, tbl_city.name AS 'c_name' FROM tbl_hospital INNER JOIN tbl_city ON tbl_hospital.c_id = tbl_city.id  WHERE tbl_hospital.id = $_GET[id]";
+        $query = "SELECT tbl_hospital.*, tbl_city.name AS 'c_name' FROM tbl_hospital INNER JOIN tbl_city ON tbl_hospital.c_id = tbl_city.id";
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_assoc($result);
         ?>
@@ -57,16 +57,16 @@ if (!isset($_SESSION['admin_session'])){
                         <form method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required value="<?php echo $row['name']; ?>">
+                            <input type="text" class="form-control" id="name" name="name" required placeholder="Enter Hospital Name">
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="number" class="form-control" id="phone" name="phone" required value="<?php echo $row['phone']; ?>">
+                            <input type="number" class="form-control" id="phone" name="phone" required placeholder="Enter phone number">
                         </div>
                         <div class="form-group">
                             <label for="city">City</label>
                             <select class="custom-select" name="city">
-                                <!-- <option selected><?php echo $row['c_name']; ?></option> -->
+                                <option selected>Select City</option>
                                 <?php
 
                                 $c_query = "SELECT * FROM tbl_city";
@@ -90,15 +90,15 @@ if (!isset($_SESSION['admin_session'])){
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="email" required value="<?php echo $row['email']; ?>">
+                            <input type="email" class="form-control" id="email" name="email" required placeholder="Enter Email Address">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="text" class="form-control" id="password" name="password" required value="<?php echo $row['password']; ?>">
+                            <input type="text" class="form-control" id="password" name="password" required placeholder="Enter Password">
                         </div>
                         <div class="form-group">
                             <label for="address">Hospital Address</label>
-                            <input type="text" class="form-control" id="address" name="address" required value="<?php echo $row['address']; ?>">
+                            <input type="text" class="form-control" id="address" name="address" required placeholder="Enter Hospital address">
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>
@@ -108,11 +108,11 @@ if (!isset($_SESSION['admin_session'])){
                                 <option value="deactivate">Deactivate</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary" name="update">Update</button>
+                        <button type="submit" class="btn btn-primary" name="add">Add Hospital</button>
                         </form>
                     </div>  <!-- updateform -->
                     <?php
-                    if (isset($_POST['update'])){
+                    if (isset($_POST['add'])){
                         $name = $_POST['name'];
                         $phone = $_POST['phone'];
                         $city = $_POST['city'];
@@ -121,19 +121,19 @@ if (!isset($_SESSION['admin_session'])){
                         $address = $_POST['address'];
                         $status = $_POST['status'];
  
-                        $query = "UPDATE tbl_hospital SET name = '$name', phone = '$phone', c_id = '$city', email = '$email', password = '$password', address = '$address', status = '$status' WHERE id =  $_GET[id]";
+                        $query = "INSERT INTO tbl_hospital (name, phone, c_id, email, password, address, status) VALUES ('$name', '$phone', '$city', '$email', '$password', '$address', '$status')";
                         $result = mysqli_query($conn, $query);
 
                         if ($result){
                             echo
                             "<script>
-                            alert('Hospital details updated successfully');
+                            alert('Hospital added successfully');
                             window.location.href = 'hospital.php';
                             </script>";
                         } else {
                             echo
                             "<script>
-                            alert('Hospital details update failed');
+                            alert('Add Hospital failed');
                             </script>";
                         }
                     }
@@ -143,30 +143,30 @@ if (!isset($_SESSION['admin_session'])){
         
                 <div class="col-md-6">
                     <div class="image my-4 mx-5" style="width: 200px; height:200px; border: 1px solid black;">
-                        <img src="<?php echo $row['image']; ?>" alt="Hospital Picture"  style="width: 200px; height:200px; object-fit:contain; border: 1px solid black;">
+                        <img src="" alt="Hospital Picture"  style="width: 200px; height:200px; object-fit:contain; border: 1px solid black;">
                     </div>  <!-- image -->
                     <form method="post" enctype="multipart/form-data">
                         <div class="form-group my-4 mx-5">
                             <input type="file" name="image">
                         </div>  <!-- form-group -->
                         <div class="form-group my-4 mx-5">
-                            <input type="submit" class="btn btn-primary" value="Image upload" name="updateimg">
+                            <input type="submit" class="btn btn-primary" value="Image upload" name="addimg">
                         </div>  <!-- form-group -->
                     </form>
                     <?php
-        if (isset($_POST['updateimg'])){
+        if (isset($_POST['addimg'])){
             $imageName = $_FILES['image']['name'];
             $tmpName = $_FILES['image']['tmp_name'];
             $path = "assests/dist/img/$imageName";
             move_uploaded_file($tmpName, $path);
 
-            $query = "UPDATE tbl_hospital SET image = '$path' WHERE id = $_GET[id]";
+            $query = "INSERT INTO tbl_hospital(image) VALUES ($path)";
             $result = mysqli_query($conn, $query);
 
             if ($result){
                 echo
                 "<script>
-                alert('Hospital image updated');
+                alert('Hospital image Uploaded Successfully');
                 window.location.href = 'hospital.php';
                 </script>";
             } else {

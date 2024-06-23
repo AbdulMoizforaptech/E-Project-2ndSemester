@@ -31,8 +31,9 @@ if (!isset($_SESSION['admin_session'])){
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item"><a href="profile.php">Profile</a></li>
+                <li class="btn btn-sm btn-primary mx-3"><a class="text-white" href="add_hospital.php">Add new Hospital</a></li>  
+                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="profile.php">Profile</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
