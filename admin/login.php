@@ -1,6 +1,10 @@
 <?php
 include("config.php");
 session_start();
+
+if (isset($_SESSION['admin_session'])){
+    echo "<script>window.location.href= 'index.php'</script>";
+  } 
 ?>
 
 <!DOCTYPE html>
@@ -57,6 +61,7 @@ session_start();
             if (mysqli_num_rows($result)> 0){
                 $row = mysqli_fetch_assoc($result);
                 $_SESSION['admin_session'] = $row['id'];
+                $_SESSION['username'] = $row['name'];
                 echo 
                 "<script>
                     alert('login Successful');

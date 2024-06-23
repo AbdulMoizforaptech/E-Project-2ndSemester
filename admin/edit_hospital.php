@@ -5,17 +5,13 @@ session_start();
 if (!isset($_SESSION['admin_session'])){
   echo "<script>window.location.href= 'login.php'</script>";
 } 
-
-$query = "SELECT * FROM tbl_admin WHERE id = $_SESSION[admin_session]";
-$result = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Profile</title>
+    <title>Edit Hospital</title>
 </head>
 <body>
     <?php
@@ -31,7 +27,7 @@ $row = mysqli_fetch_assoc($result);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">My Profile</h1>
+            <h1 class="m-0">Edit Hospital Details</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -48,8 +44,14 @@ $row = mysqli_fetch_assoc($result);
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <div class="maincontent">
-            <div class="row">
+        <?php
+        $query = "SELECT tbl_hospital.*, tbl_city.name AS 'c_name' FROM tbl_hospital INNER JOIN tbl_city ON tbl_hospital.c_id = tbl_city.id  WHERE tbl_hospital.id = $_GET[id]";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+        ?>
+                    
+        <div class="card-body">
+        <div class="row">
                 <div class="col-md-6">
                     <div class="updateform" style=" padding-left:50px; max-width:600px; width:100%;">
                         <form method="POST">
@@ -58,12 +60,53 @@ $row = mysqli_fetch_assoc($result);
                             <input type="text" class="form-control" id="name" name="name" required value="<?php echo $row['name']; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email address</label>
+                            <label for="phone">Phone Number</label>
+                            <input type="number" class="form-control" id="phone" name="phone" required value="<?php echo $row['phone']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <select class="custom-select" name="city">
+                                <!-- <option selected><?php echo $row['c_name']; ?></option> -->
+                                <?php
+
+                                $c_query = "SELECT * FROM tbl_city";
+                                $c_result = mysqli_query($conn,$c_query);
+
+                                if (mysqli_num_rows($c_result)>0){
+                                    $num = 0;
+                                    foreach ($c_result as $c_row){
+                                        $num++;
+                                        ?>
+                                            <option <?php if($c_row['id'] == $row['c_id'])echo 'selected' ?> value="<?php echo $c_row['id']?>"><?php echo $c_row['name'] ?></option>
+                                            <!-- <option value="<?php echo $c_row['id']?>"><?php echo $c_row['name']?></option>"; -->
+                                    <?php }
+                                }
+
+                                ?>
+                            
+                                
+                            
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
                             <input type="email" class="form-control" id="email" name="email" required value="<?php echo $row['email']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="text" class="form-control" id="password" name="password" required value="<?php echo $row['password']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Hospital Address</label>
+                            <input type="text" class="form-control" id="address" name="address" required value="<?php echo $row['address']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select class="custom-select" name="status">
+                                <option selected><?php echo $row['status']; ?></option>
+                                <option value="activate">Activate</option>
+                                <option value="deactivate">Deactivate</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary" name="update">Update</button>
                         </form>
@@ -71,17 +114,21 @@ $row = mysqli_fetch_assoc($result);
                     <?php
                     if (isset($_POST['update'])){
                         $name = $_POST['name'];
+                        $phone = $_POST['phone'];
+                        $city = $_POST['city'];
                         $email = $_POST['email'];
                         $password = $_POST['password'];
-
-                        $query = "UPDATE tbl_admin SET name = '$name', email = '$email', password = '$password' WHERE id = $_SESSION[admin_session]";
+                        $address = $_POST['address'];
+                        $status = $_POST['status'];
+ 
+                        $query = "UPDATE tbl_hospital SET name = '$name', phone = '$phone', c_id = '$city', email = '$email', password = '$password', address = '$address', status = '$status' WHERE id =  $_GET[id]";
                         $result = mysqli_query($conn, $query);
 
                         if ($result){
                             echo
                             "<script>
-                            alert('Profile updated successfully');
-                            window.location.href = 'profile.php';
+                            alert('Hospital details updated successfully');
+                            window.location.href = 'hospital.php';
                             </script>";
                         }
                     }
@@ -121,9 +168,9 @@ $row = mysqli_fetch_assoc($result);
         }
         ?>
                 </div>  <!-- col -->
-
             </div>  <!-- row -->
-        </div>  <!-- maincontent -->
+        </div>  <!-- card-body -->
+                    
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

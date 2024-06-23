@@ -1,3 +1,13 @@
+<?php
+    include("admin/config.php");
+    session_start();
+    if (isset($_SESSION['admin_session'])){
+        $query = "SELECT * FROM tbl_admin WHERE id = $_SESSION[admin_session]";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+      } 
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,8 +88,8 @@
 
 
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li><a href="#" class="nav-link" onclick="GoTOLogin()">Login</a></li>
-                </ul>,
+                    <li><a href="#" class="nav-link" onclick="GoTOLogin()"><?php if(isset($_SESSION['admin_session'])) echo $row['name']; else echo "Login"; ?></a></li>
+                </ul>
                 </nav>
             </div>
 

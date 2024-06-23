@@ -1,4 +1,5 @@
 <?php
+include("config.php");
 session_start();
 
 if (!isset($_SESSION['admin_session'])){
@@ -10,7 +11,7 @@ if (!isset($_SESSION['admin_session'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Hospital</title>
 </head>
 <body>
     <?php
@@ -26,7 +27,7 @@ if (!isset($_SESSION['admin_session'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">List of Hospitals</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -43,9 +44,40 @@ if (!isset($_SESSION['admin_session'])){
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <?php
-          include("include/cards.php");
-        ?>
+        <div class="card-body">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $query = "SELECT * FROM tbl_hospital";
+                    $result = mysqli_query($conn, $query);
+                    foreach ($result as $row){
+                        echo
+                        "<tr>
+                            <td>$row[id]</td>
+                            <td>$row[name]</td>
+                            <td>$row[phone]</td>
+                            <td>$row[status]</td>
+                            <td>
+                            <a href= 'view_hospital.php?id=$row[id]'>View</a> || 
+                            <a href= 'edit_hospital.php?id=$row[id]'>Edit</a>
+                            </td>
+                        </tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>  <!-- card-body -->
+                    
+                    
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
