@@ -130,6 +130,11 @@ if (!isset($_SESSION['admin_session'])){
                             alert('Hospital details updated successfully');
                             window.location.href = 'hospital.php';
                             </script>";
+                        } else {
+                            echo
+                            "<script>
+                            alert('Hospital details update failed');
+                            </script>";
                         }
                     }
                     ?>
@@ -155,14 +160,19 @@ if (!isset($_SESSION['admin_session'])){
             $path = "assests/dist/img/$imageName";
             move_uploaded_file($tmpName, $path);
 
-            $query = "UPDATE tbl_admin SET image = '$path' WHERE id = $_SESSION[admin_session]";
+            $query = "UPDATE tbl_hospital SET image = '$path' WHERE id = $_GET[id]";
             $result = mysqli_query($conn, $query);
 
             if ($result){
                 echo
                 "<script>
-                alert('Profile image updated');
-                window.location.href = 'profile.php';
+                alert('Hospital image updated');
+                window.location.href = 'hospital.php';
+                </script>";
+            } else {
+                echo
+                "<script>
+                alert('Hospital Image Upload failed');
                 </script>";
             }
         }

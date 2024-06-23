@@ -57,7 +57,7 @@ if (!isset($_SESSION['admin_session'])){
                         <th style="width: 15%;">Image</th>
                     <!-- </thead> -->
                     <!-- <tbody> -->
-                        <td style="height:130px; object-fit:contain;"><?php echo "$row[image]" ?></td>
+                        <td><img src="<?php echo "$row[image]" ?>" style="height:130px; object-fit:contain;"></td>
                     <!-- </tbody> -->
                 </tr>
                 <tr>    
