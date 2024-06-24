@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2024 at 09:54 AM
+-- Generation Time: Jun 24, 2024 at 04:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id`, `name`, `email`, `password`, `image`, `created_at`) VALUES
-(1, 'Abdul Moiz', 'abdulmoizforaptech@gmail.com', 'admin123', '', 'current_timestamp()');
+(1, 'Abdul Moiz', 'abdulmoizforaptech@gmail.com', 'admin123', 'assests/dist/img/24 copy.jpg', 'current_timestamp()');
 
 -- --------------------------------------------------------
 
@@ -71,6 +71,15 @@ CREATE TABLE `tbl_city` (
   `name` varchar(50) NOT NULL,
   `created_at` varchar(150) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_city`
+--
+
+INSERT INTO `tbl_city` (`id`, `name`, `created_at`) VALUES
+(1, 'Karachi', 'current_timestamp()'),
+(2, 'Lahore', 'current_timestamp()'),
+(3, 'Islamabad', 'current_timestamp()');
 
 -- --------------------------------------------------------
 
@@ -103,6 +112,15 @@ CREATE TABLE `tbl_hospital` (
   `status` varchar(20) NOT NULL DEFAULT 'deactivate',
   `created_at` varchar(150) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_hospital`
+--
+
+INSERT INTO `tbl_hospital` (`id`, `name`, `phone`, `c_id`, `email`, `password`, `image`, `address`, `status`, `created_at`) VALUES
+(1, 'Abbasi Shaheed Hospital', '02139926030', 2, 'info@kmc.com', 'abbassi', '1.jpg', 'Khilafat Chowk, Nazimabad, Karachi', 'deactivate', 'current_timestamp()'),
+(2, 'Shed Hospital', '02136407011', 1, 'info@shedfoundation.org.pk', 'shed123', 'assests/dist/img/2016-04-12 23.49.59.png', 'Plot No. ST 1/2-A Sector 11-C-2 North Karachi, Karachi', 'deactivate', 'current_timestamp()'),
+(3, 'Hamdard Hospital', '02137654321', 3, 'info@hamdard.com', 'hamdard', 'assests/dist/img/logo maahad.png', 'Nazimabad #3, Karachi', 'deactivate', '2024-06-24 00:20:16');
 
 -- --------------------------------------------------------
 
@@ -226,7 +244,7 @@ ALTER TABLE `tbl_appointment`
 -- AUTO_INCREMENT for table `tbl_city`
 --
 ALTER TABLE `tbl_city`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_feedback`
@@ -238,7 +256,7 @@ ALTER TABLE `tbl_feedback`
 -- AUTO_INCREMENT for table `tbl_hospital`
 --
 ALTER TABLE `tbl_hospital`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_patient`

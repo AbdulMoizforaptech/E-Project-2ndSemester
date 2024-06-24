@@ -11,7 +11,7 @@ if (!isset($_SESSION['admin_session'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Hospital</title>
+    <title>Edit Patient</title>
 </head>
 <body>
     <?php
@@ -27,7 +27,7 @@ if (!isset($_SESSION['admin_session'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Edit Hospital Details</h1>
+            <h1 class="m-0">Edit Patient Details</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -45,7 +45,7 @@ if (!isset($_SESSION['admin_session'])){
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <?php
-        $query = "SELECT tbl_hospital.*, tbl_city.name AS 'c_name' FROM tbl_hospital INNER JOIN tbl_city ON tbl_hospital.c_id = tbl_city.id  WHERE tbl_hospital.id = $_GET[id]";
+        $query = "SELECT tbl_patient.*, tbl_city.name AS 'c_name' FROM tbl_patient INNER JOIN tbl_city ON tbl_patient.c_id = tbl_city.id  WHERE tbl_patient.id = $_GET[id]";
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_assoc($result);
         ?>
@@ -60,8 +60,20 @@ if (!isset($_SESSION['admin_session'])){
                             <input type="text" class="form-control" id="name" name="name" required value="<?php echo $row['name']; ?>">
                         </div>
                         <div class="form-group">
+                            <label for="cnic">National Identity Number (CNIC)</label>
+                            <input type="text" class="form-control" id="cnic" name="cnic" required value="<?php echo $row['cnic']; ?>">
+                        </div>
+                        <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="number" class="form-control" id="phone" name="phone" required value="<?php echo $row['phone']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" required value="<?php echo $row['email']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" name="password" required value="<?php echo $row['password']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="city">City</label>
@@ -89,16 +101,12 @@ if (!isset($_SESSION['admin_session'])){
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="email" required value="<?php echo $row['email']; ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="text" class="form-control" id="password" name="password" required value="<?php echo $row['password']; ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Hospital Address</label>
+                            <label for="address">Patient Address</label>
                             <input type="text" class="form-control" id="address" name="address" required value="<?php echo $row['address']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <input type="text" class="form-control" id="gender" name="gender" required value="<?php echo $row['gender']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>
@@ -114,26 +122,28 @@ if (!isset($_SESSION['admin_session'])){
                     <?php
                     if (isset($_POST['update'])){
                         $name = $_POST['name'];
+                        $cnic = $_POST['cnic'];
                         $phone = $_POST['phone'];
-                        $city = $_POST['city'];
                         $email = $_POST['email'];
                         $password = $_POST['password'];
+                        $city = $_POST['city'];
                         $address = $_POST['address'];
+                        $gender = $_POST['gender'];
                         $status = $_POST['status'];
  
-                        $query = "UPDATE tbl_hospital SET name = '$name', phone = '$phone', c_id = '$city', email = '$email', password = '$password', address = '$address', status = '$status' WHERE id =  $_GET[id]";
+                        $query = "UPDATE tbl_patient SET name = '$name', cnic = '$cnic'; phone = '$phone', email = '$email', password = '$password', c_id = '$city', address = '$address', gender = '$gender', status = '$status' WHERE id =  $_GET[id]";
                         $result = mysqli_query($conn, $query);
 
                         if ($result){
                             echo
                             "<script>
-                            alert('Hospital details updated successfully');
-                            window.location.href = 'hospital.php';
+                            alert('Patient details updated successfully');
+                            window.location.href = 'patient.php';
                             </script>";
                         } else {
                             echo
                             "<script>
-                            alert('Hospital details update failed');
+                            alert('Patient details update failed');
                             </script>";
                         }
                     }
@@ -143,7 +153,7 @@ if (!isset($_SESSION['admin_session'])){
         
                 <div class="col-md-6">
                     <div class="image my-4 mx-5" style="width: 200px; height:200px; border: 1px solid black;">
-                        <img src="<?php echo $row['image']; ?>" alt="Hospital Picture"  style="width: 200px; height:200px; object-fit:contain; border: 1px solid black;">
+                        <img src="<?php echo $row['image']; ?>" alt="Patient Picture"  style="width: 200px; height:200px; object-fit:contain; border: 1px solid black;">
                     </div>  <!-- image -->
                     <form method="post" enctype="multipart/form-data">
                         <div class="form-group my-4 mx-5">
@@ -160,19 +170,19 @@ if (!isset($_SESSION['admin_session'])){
             $path = "assests/dist/img/hospital/$imageName";
             move_uploaded_file($tmpName, $path);
 
-            $query = "UPDATE tbl_hospital SET image = '$path' WHERE id = $_GET[id]";
+            $query = "UPDATE tbl_patient SET image = '$path' WHERE id = $_GET[id]";
             $result = mysqli_query($conn, $query);
 
             if ($result){
                 echo
                 "<script>
-                alert('Hospital image updated');
-                window.location.href = 'hospital.php';
+                alert('Patient image updated');
+                window.location.href = 'patient.php';
                 </script>";
             } else {
                 echo
                 "<script>
-                alert('Hospital Image Upload failed');
+                alert('Patient Image Upload failed');
                 </script>";
             }
         }

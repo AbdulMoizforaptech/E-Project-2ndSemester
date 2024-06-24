@@ -11,7 +11,7 @@ if (!isset($_SESSION['admin_session'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Hospital</title>
+    <title>Add Patient</title>
 </head>
 <body>
     <?php
@@ -27,7 +27,7 @@ if (!isset($_SESSION['admin_session'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Add Hospital</h1>
+            <h1 class="m-0">Add Patient</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -45,7 +45,7 @@ if (!isset($_SESSION['admin_session'])){
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <?php
-        $query = "SELECT tbl_hospital.*, tbl_city.name AS 'c_name' FROM tbl_hospital INNER JOIN tbl_city ON tbl_hospital.c_id = tbl_city.id";
+        $query = "SELECT tbl_patient.*, tbl_city.name AS 'c_name' FROM tbl_patient INNER JOIN tbl_city ON tbl_patient.c_id = tbl_city.id";
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_assoc($result);
         ?>
@@ -53,15 +53,27 @@ if (!isset($_SESSION['admin_session'])){
         <div class="card-body">
         <div class="row">
                 <div class="col-md-6">
-                    <div class="addhospital" style=" padding-left:50px; max-width:600px; width:100%;">
+                    <div class="addpatient" style=" padding-left:50px; max-width:600px; width:100%;">
                         <form method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required placeholder="Enter Hospital Name">
+                            <input type="text" class="form-control" id="name" name="name" required placeholder="Enter Patient Name">
+                        </div>  <!-- form-group -->
+                        <div class="form-group">
+                            <label for="cnic">National Identity Number (CNIC)</label>
+                            <input type="number" class="form-control" id="cnic" name="cnic" required placeholder="Enter CNIC Number without dashes">
                         </div>  <!-- form-group -->
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="number" class="form-control" id="phone" name="phone" required placeholder="Enter phone number">
+                        </div>  <!-- form-group -->
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" required placeholder="Enter Email Address">
+                        </div>  <!-- form-group -->
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" name="password" required placeholder="Enter Password">
                         </div>  <!-- form-group -->
                         <div class="form-group">
                             <label for="city">City</label>
@@ -88,16 +100,17 @@ if (!isset($_SESSION['admin_session'])){
                             </select>
                         </div>  <!-- form-group -->
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="email" required placeholder="Enter Email Address">
+                            <label for="address">Patient Address</label>
+                            <input type="text" class="form-control" id="address" name="address" required placeholder="Enter Patient address">
                         </div>  <!-- form-group -->
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="text" class="form-control" id="password" name="password" required placeholder="Enter Password">
-                        </div>  <!-- form-group -->
-                        <div class="form-group">
-                            <label for="address">Hospital Address</label>
-                            <input type="text" class="form-control" id="address" name="address" required placeholder="Enter Hospital address">
+                            <label for="gender">Gender</label>
+                            <select class="custom-select" name="gender">
+                                <option selected>Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>  <!-- form-group -->
                         <div class="form-group">
                             <label for="status">Status</label>
@@ -111,36 +124,38 @@ if (!isset($_SESSION['admin_session'])){
                             <label for="image">Choose an image</label>
                             <input type="file" class="form-control" name="image">
                         </div>  <!-- form-group -->
-                        <button type="submit" class="btn btn-primary" name="add">Add Hospital</button>
+                        <button type="submit" class="btn btn-primary" name="add">Add Patient</button>
                         </form>
-                    </div>  <!-- addhospital -->
+                    </div>  <!-- addpatient -->
                     <?php
                     if (isset($_POST['add'])){
                         $name = $_POST['name'];
+                        $cnic = $_POST['cnic'];
                         $phone = $_POST['phone'];
-                        $city = $_POST['city'];
                         $email = $_POST['email'];
                         $password = $_POST['password'];
+                        $city = $_POST['city'];
                         $address = $_POST['address'];
+                        $gender = $_POST['gender'];
                         $status = $_POST['status'];
                         $image = $_FILES['image']['name'];
                         $tmpName = $_FILES['image']['tmp_name'];
                         $path = "assests/dist/img/hospital/$image";
                         move_uploaded_file($tmpName, $path);
  
-                        $query = "INSERT INTO tbl_hospital (name, phone, c_id, email, password, address, status, image) VALUES ('$name', '$phone', '$city', '$email', '$password', '$address', '$status', '$path')";
+                        $query = "INSERT INTO tbl_patient (name, cnic, phone, email, password, c_id, address, gender, status, image) VALUES ('$name', '$cnic', '$phone', '$email', '$password', '$city', '$address', '$gender', '$status', '$path')";
                         $result = mysqli_query($conn, $query);
 
                         if ($result){
                             echo
                             "<script>
-                            alert('Hospital added successfully');
-                            window.location.href = 'hospital.php';
+                            alert('Patient added successfully');
+                            window.location.href = 'patient.php';
                             </script>";
                         } else {
                             echo
                             "<script>
-                            alert('Add Hospital failed');
+                            alert('Add Patient failed');
                             </script>";
                         }
                     }
