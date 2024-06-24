@@ -18,6 +18,3 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
-
-
-    <h1>Hello world</h1>

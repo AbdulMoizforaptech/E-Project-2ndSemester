@@ -49,13 +49,13 @@ $row = mysqli_fetch_assoc($result);
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="appointment.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Appointments</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="covid_test.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Covid Test</p>
             </a>

@@ -103,9 +103,9 @@ if (!isset($_SESSION['admin_session'])){
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select class="custom-select" name="status">
-                                <option selected><?php echo $row['status']; ?></option>
-                                <option value="activate">Activate</option>
-                                <option value="deactivate">Deactivate</option>
+                                <!-- <option selected><?php echo $row['status']; ?></option> -->
+                                <option <?php if($row['status'] == 'activate')echo 'selected' ?> value="activate">Activate</option>
+                                <option <?php if($row['status'] == 'deactivate')echo 'selected' ?> value="deactivate">Deactivate</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary" name="update">Update</button>

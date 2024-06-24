@@ -107,9 +107,9 @@ if (!isset($_SESSION['admin_session'])){
                             <label for="gender">Gender</label>
                             <select class="custom-select" name="gender">
                                 <option selected>Select gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>  <!-- form-group -->
                         <div class="form-group">
@@ -140,7 +140,7 @@ if (!isset($_SESSION['admin_session'])){
                         $status = $_POST['status'];
                         $image = $_FILES['image']['name'];
                         $tmpName = $_FILES['image']['tmp_name'];
-                        $path = "assests/dist/img/hospital/$image";
+                        $path = "assests/dist/img/patient/$image";
                         move_uploaded_file($tmpName, $path);
  
                         $query = "INSERT INTO tbl_patient (name, cnic, phone, email, password, c_id, address, gender, status, image) VALUES ('$name', '$cnic', '$phone', '$email', '$password', '$city', '$address', '$gender', '$status', '$path')";

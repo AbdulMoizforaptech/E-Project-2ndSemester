@@ -106,14 +106,19 @@ if (!isset($_SESSION['admin_session'])){
                         </div>
                         <div class="form-group">
                             <label for="gender">Gender</label>
-                            <input type="text" class="form-control" id="gender" name="gender" required value="<?php echo $row['gender']; ?>">
+                            <select class="custom-select" name="gender">
+                                <!-- <option selected><?php echo $row['gender']; ?></option> -->
+                                <option <?php if($row['gender'] == 'Male')echo 'selected' ?> value="Male">Male</option>
+                                <option <?php if($row['gender'] == 'Female')echo 'selected' ?> value="Female">Female</option>
+                                <option <?php if($row['gender'] == 'Other')echo 'selected' ?> value="Other">Other</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select class="custom-select" name="status">
-                                <option selected><?php echo $row['status']; ?></option>
-                                <option value="activate">Activate</option>
-                                <option value="deactivate">Deactivate</option>
+                                <!-- <option selected><?php echo $row['status']; ?></option> -->
+                                <option <?php if($row['status'] == 'activate')echo 'selected' ?> value="activate">Activate</option>
+                                <option <?php if($row['status'] == 'deactivate')echo 'selected' ?> value="deactivate">Deactivate</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary" name="update">Update</button>
@@ -131,7 +136,7 @@ if (!isset($_SESSION['admin_session'])){
                         $gender = $_POST['gender'];
                         $status = $_POST['status'];
  
-                        $query = "UPDATE tbl_patient SET name = '$name', cnic = '$cnic'; phone = '$phone', email = '$email', password = '$password', c_id = '$city', address = '$address', gender = '$gender', status = '$status' WHERE id =  $_GET[id]";
+                        $query = "UPDATE tbl_patient SET name = '$name', cnic = '$cnic', phone = '$phone', email = '$email', password = '$password', c_id = '$city', address = '$address', gender = '$gender', status = '$status' WHERE id =  $_GET[id]";
                         $result = mysqli_query($conn, $query);
 
                         if ($result){
@@ -167,7 +172,7 @@ if (!isset($_SESSION['admin_session'])){
         if (isset($_POST['updateimg'])){
             $imageName = $_FILES['image']['name'];
             $tmpName = $_FILES['image']['tmp_name'];
-            $path = "assests/dist/img/hospital/$imageName";
+            $path = "assests/dist/img/patient/$imageName";
             move_uploaded_file($tmpName, $path);
 
             $query = "UPDATE tbl_patient SET image = '$path' WHERE id = $_GET[id]";
