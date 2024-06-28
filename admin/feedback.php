@@ -11,7 +11,7 @@ if (!isset($_SESSION['admin_session'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital</title>
+    <title>Feedbacks</title>
 </head>
 <body>
     <?php
@@ -27,11 +27,10 @@ if (!isset($_SESSION['admin_session'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">List of Hospitals</h1>
+            <h1 class="m-0">List of Feedbacks</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-                <li class="btn btn-sm btn-primary mx-3"><a class="text-white" href="add_hospital.php">Add new Hospital</a></li>  
+            <ol class="breadcrumb float-sm-right">  
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                 <li class="breadcrumb-item"><a href="profile.php">Profile</a></li>
             </ol>
@@ -50,8 +49,8 @@ if (!isset($_SESSION['admin_session'])){
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Phone</th>
+                        <th>Patient Name</th>
+                        <th>Message</th>
                         <th>Status</th>
                         <th>Action</th>
                         <th>Record Time</th>
@@ -59,19 +58,21 @@ if (!isset($_SESSION['admin_session'])){
                 </thead>
                 <tbody>
                     <?php
-                    $query = "SELECT * FROM tbl_hospital";
+                    $query = "SELECT tbl_patient.name AS 'p', tbl_feedback.* FROM tbl_feedback INNER JOIN tbl_patient ON tbl_feedback.p_id = tbl_patient.id";
                     $result = mysqli_query($conn, $query);
                     foreach ($result as $row){
                         echo
                         "<tr>
                             <td>$row[id]</td>
-                            <td>$row[name]</td>
-                            <td>$row[phone]</td>
+                            <td>$row[p]</td>
+                            <td>$row[message]</td>
                             <td>$row[status]</td>
-                            <td>
-                            <a href= 'view_hospital.php?id=$row[id]'>View</a> || 
-                            <a href= 'edit_hospital.php?id=$row[id]'>Edit</a>
-                            </td>
+                            <td>"; if ($row['status'] == "hide"){
+                                echo "<a href = 'include/feedback_status_show.php?id=$row[id]'>Show</a>";
+                            } else {
+                                echo "<a href = 'include/feedback_status_hide.php?id=$row[id]'>Hide</a>";
+                            }
+                            "</td>
                             <td>$row[created_at]</td>
                         </tr>";
                     }

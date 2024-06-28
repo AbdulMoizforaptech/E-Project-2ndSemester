@@ -54,6 +54,7 @@ if (!isset($_SESSION['admin_session'])){
                         <th>Phone</th>
                         <th>City</th>
                         <th>Action</th>
+                        <th>Record Time</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,6 +72,7 @@ if (!isset($_SESSION['admin_session'])){
                             <a href= 'view_patient.php?id=$row[id]'>View</a> || 
                             <a href= 'edit_patient.php?id=$row[id]'>Edit</a>
                             </td>
+                            <td>$row[created_at]</td>
                         </tr>";
                     }
                     ?>

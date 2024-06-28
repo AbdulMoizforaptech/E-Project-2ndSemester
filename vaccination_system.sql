@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2024 at 09:51 PM
+-- Generation Time: Jun 28, 2024 at 08:51 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -100,8 +100,16 @@ CREATE TABLE `tbl_feedback` (
   `id` int(11) NOT NULL,
   `p_id` int(11) NOT NULL,
   `message` varchar(350) NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'hide',
   `created_at` varchar(150) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_feedback`
+--
+
+INSERT INTO `tbl_feedback` (`id`, `p_id`, `message`, `status`, `created_at`) VALUES
+(1, 2, 'Testing feedback', 'show', 'current_timestamp()');
 
 -- --------------------------------------------------------
 
@@ -291,7 +299,7 @@ ALTER TABLE `tbl_city`
 -- AUTO_INCREMENT for table `tbl_feedback`
 --
 ALTER TABLE `tbl_feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_hospital`
