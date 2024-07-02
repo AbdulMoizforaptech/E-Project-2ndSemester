@@ -1,8 +1,8 @@
 <?php
-include("config.php");
+include("../admin/config.php");
 session_start();
 
-if (isset($_SESSION['admin_session'])){
+if (isset($_SESSION['patient_session'])){
     echo "<script>window.location.href= 'index.php'</script>";
   } 
 ?>
@@ -12,7 +12,7 @@ if (isset($_SESSION['admin_session'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
+    <title>Patient Login</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap" rel="stylesheet">
 
@@ -55,12 +55,12 @@ if (isset($_SESSION['admin_session'])){
         if (isset($_POST['login'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $query = "SELECT * FROM tbl_admin WHERE email = '$email' AND password = '$password' LIMIT 1";
+            $query = "SELECT * FROM tbl_patient WHERE email = '$email' AND password = '$password' LIMIT 1";
             $result = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($result)> 0){
                 $row = mysqli_fetch_assoc($result);
-                $_SESSION['admin_session'] = $row['id'];
+                $_SESSION['patient_session'] = $row['id'];
                 $_SESSION['username'] = $row['name'];
                 echo 
                 "<script>

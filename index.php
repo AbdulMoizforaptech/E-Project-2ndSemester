@@ -5,7 +5,11 @@
         $query = "SELECT * FROM tbl_admin WHERE id = $_SESSION[admin_session]";
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_assoc($result);
-      } 
+      } elseif (isset($_SESSION['patient_session'])){
+        $query = "SELECT * FROM tbl_patient WHERE id = $_SESSION[patient_session]";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+      }
     
 ?>
 <!DOCTYPE html>
@@ -88,7 +92,19 @@
 
 
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li><a href="#" class="nav-link" onclick="GoTOLogin()"><?php if(isset($_SESSION['admin_session'])) echo $row['name']; else echo "Login"; ?></a></li>
+                    <li class="has-children">
+                    <a href="" class="nav-link">
+                        <?php if(isset($_SESSION['admin_session']))  echo $row['name'];
+                        elseif(isset($_SESSION['hospital_session'])) echo $row['name'];
+                        elseif(isset($_SESSION['patient_session'])) echo $row['name']; else echo "Login"; ?>
+                    </a>
+                    <ul class="dropdown">
+                        <li><a href="admin/login.php" class="nav-link">Admin</a></li>
+                        <li><a href="#" class="nav-link">Hospital</a></li>
+                        <li><a href="patient/login.php" class="nav-link">Patient</a></li>
+                    </ul>
+                    </li>
+                    <!-- <li><a href="#" class="nav-link" onclick="GoTOLogin()"><?php if(isset($_SESSION['admin_session'])) echo $row['name']; else echo "Login"; ?></a></li> -->
                 </ul>
                 </nav>
             </div>
