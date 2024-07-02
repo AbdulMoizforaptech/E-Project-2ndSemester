@@ -72,7 +72,7 @@ if (!isset($_SESSION['admin_session'])){
                             } else {
                                 echo "<a href = 'include/feedback_status_hide.php?id=$row[id]'>Hide</a>";
                             }
-                            "</td>
+                            echo "</td>
                             <td>$row[created_at]</td>
                         </tr>";
                     }
