@@ -36,17 +36,6 @@ $row = mysqli_fetch_assoc($result);
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="hospital.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>Hospital</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="patient.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>Patient</p>
-            </a>
           </li>
           <li class="nav-item">
             <a href="appointment.php" class="nav-link">
@@ -57,13 +46,7 @@ $row = mysqli_fetch_assoc($result);
           <li class="nav-item">
             <a href="covid_test.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
-              <p>Covid Test</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="feedback.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>Feedback</p>
+              <p>Covid Tests</p>
             </a>
           </li>
           <li class="nav-item">
