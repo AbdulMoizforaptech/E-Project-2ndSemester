@@ -40,7 +40,7 @@ $row = mysqli_fetch_assoc($result);
           <li class="nav-item">
             <a href="appointment.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
-              <p>Appointments</p>
+              <p>Covid Vaccinations</p>
             </a>
           </li>
           <li class="nav-item">

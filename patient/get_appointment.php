@@ -12,7 +12,7 @@ if (!isset($_SESSION['patient_session'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Appointment</title>
+    <title>New Vaccination Appointment</title>
 </head>
 <body>
     <?php
@@ -28,7 +28,7 @@ if (!isset($_SESSION['patient_session'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">New Appointment</h1>
+            <h1 class="m-0">New Vaccination Appointment</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -65,7 +65,7 @@ if (!isset($_SESSION['patient_session'])){
                         <div class="form-group">
                             <label for="hospital">Hospital</label>
                             <select class="custom-select" name="hospital" required>
-                                <option selected hidden>Select Hospital</option>
+                                <option value="" selected hidden>Select Hospital</option>
                                 <?php
 
                                 $h_query = "SELECT * FROM tbl_hospital WHERE status = 'activate'";
@@ -90,7 +90,7 @@ if (!isset($_SESSION['patient_session'])){
                         <div class="form-group">
                             <label for="time">Select the time</label>
                             <select class="custom-select" name="time" required>
-                                <option selected hidden>Select Time</option>
+                                <option value="" selected hidden>Select Time</option>
                                 <option>9am-11am</option>
                                 <option>11am-1pm</option>
                                 <option>1pm-3pm</option>
@@ -102,7 +102,7 @@ if (!isset($_SESSION['patient_session'])){
                         <div class="form-group">
                             <label for="vaccine">Select Vaccine</label>
                             <select class="custom-select" name="vaccine" required>
-                                <option selected hidden>Select Vaccine</option>
+                                <option value="" selected hidden>Select Vaccine</option>
                                 <?php
 
                                 $v_query = "SELECT * FROM tbl_vaccine WHERE status = 'available'";
@@ -122,7 +122,7 @@ if (!isset($_SESSION['patient_session'])){
                         </div>  <!-- form-group -->
                         <button type="submit" class="btn btn-primary" name="add">Get Appointment</button>
                         </form>
-                    </div>  <!-- addpatient -->
+                    </div>  <!-- get appointment -->
                     <?php
                     if (isset($_POST['add'])){
                         $p_id = $_POST['p_id'];
@@ -132,21 +132,29 @@ if (!isset($_SESSION['patient_session'])){
                         $time = $_POST['time'];
                         $vaccine = $_POST['vaccine'];
 
-                        $appointment_query = "SELECT * FROM tbl_appointment WHERE h_id = '$hospital' AND date = '$date' AND time = '$time' AND p_id = '$_SESSION[patient_session]'";
+                        $appointment_query = "SELECT * FROM tbl_appointment WHERE date = '$date' AND p_id = '$_SESSION[patient_session]'";
                         $appointment_result = mysqli_query($conn, $appointment_query);
+                        $appointment_exist=mysqli_num_rows($appointment_result);
 
-                        if (mysqli_num_rows($appointment_result)>0){
-                            echo 
+                        if ($appointment_exist > 0){
+                            echo
                             "<script>
                             alert('Appointment already exist');
                             </script>";
-                        } else {
-                            $vaccine_query = "SELECT * FROM tbl_appointment WHERE v_id = '$vaccine' AND p_id = '$_SESSION[patient_session]'";
+                        }
+                        else {
+
+                            $vaccine_query = "SELECT * FROM tbl_appointment WHERE v_id != '$vaccine' AND p_id = '$_SESSION[patient_session]'";
                             $vaccine_result = mysqli_query($conn, $vaccine_query);
 
-                            $vaccine_exist = mysqli_fetch_assoc($vaccine_result);
+                            $vaccine_exist = mysqli_num_rows($vaccine_result);
 
-                            if ($vaccine_exist && $vaccine_exist['v_id'] == $vaccine){
+                            if ($vaccine_exist > 0){
+                                echo
+                                    "<script>
+                                    alert('You must have to select same vaccine');
+                                    </script>";
+                            } else {
                                 $query = "INSERT INTO tbl_appointment (p_id, h_id, date, time, v_id) VALUES ('$p_id', '$hospital', '$date', '$time', '$vaccine')";
                                 $result = mysqli_query($conn, $query);
 
@@ -157,14 +165,10 @@ if (!isset($_SESSION['patient_session'])){
                                     window.location.href = 'appointment.php';
                                     </script>";
                                 }
-                            } else {
-                                echo
-                                "<script>
-                                alert('You must have to select same vaccine');
-                                </script>";
+                        
+                                
                             }
                         }
- 
                     }
                     ?>
                 </div>  <!-- col -->

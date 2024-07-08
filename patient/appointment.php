@@ -11,7 +11,7 @@ if (!isset($_SESSION['patient_session'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments</title>
+    <title>Vaccination Appointments</title>
 </head>
 <body>
     <?php
@@ -27,7 +27,7 @@ if (!isset($_SESSION['patient_session'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">List of Appointments</h1>
+            <h1 class="m-0">List of Vaccination Appointments</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">  
