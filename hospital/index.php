@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['patient_session'])){
+if (!isset($_SESSION['hospital_session'])){
   echo "<script>window.location.href= 'login.php'</script>";
 } 
 ?>
@@ -44,7 +44,7 @@ if (!isset($_SESSION['patient_session'])){
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <?php
-          include("include/cards.php");
+          // include("include/cards.php");
         ?>
       </div><!-- /.container-fluid -->
     </section>

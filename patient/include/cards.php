@@ -1,45 +1,13 @@
 <?php
-include ("config.php");
+include("../admin/config.php");
 ?>
 <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3><?php
-                $query = "SELECT * FROM tbl_patient";
-                $result = mysqli_query($conn, $query);
-                $count = mysqli_num_rows($result);
-                echo $count;
-                ?></h3>
-
-                <p>Patient</p>
-              </div>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3><?php
-                $query = "SELECT * FROM tbl_hospital";
-                $result = mysqli_query($conn, $query);
-                $count = mysqli_num_rows($result);
-                echo $count;
-                ?></h3>
-
-                <p>Hospital</p>
-              </div>
-            </div>
-          </div>
-          <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3><?php
-                $query = "SELECT * FROM tbl_appointment";
+                $query = "SELECT * FROM tbl_appointment WHERE p_id = $_SESSION[patient_session]";
                 $result = mysqli_query($conn, $query);
                 $count = mysqli_num_rows($result);
                 echo $count;
@@ -55,7 +23,7 @@ include ("config.php");
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3><?php
-                $query = "SELECT * FROM tbl_test";
+                $query = "SELECT * FROM tbl_test WHERE p_id = $_SESSION[patient_session]";
                 $result = mysqli_query($conn, $query);
                 $count = mysqli_num_rows($result);
                 echo $count;

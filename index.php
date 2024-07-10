@@ -100,7 +100,7 @@
                     </a>
                     <ul class="dropdown">
                         <li><a href="admin/login.php" class="nav-link">Admin</a></li>
-                        <li><a href="#" class="nav-link">Hospital</a></li>
+                        <li><a href="hospital/login.php" class="nav-link">Hospital</a></li>
                         <li><a href="patient/login.php" class="nav-link">Patient</a></li>
                     </ul>
                     </li>

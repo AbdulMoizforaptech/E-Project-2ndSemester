@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2024 at 04:25 AM
+-- Generation Time: Jul 10, 2024 at 07:48 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -66,7 +66,9 @@ CREATE TABLE `tbl_appointment` (
 
 INSERT INTO `tbl_appointment` (`id`, `p_id`, `h_id`, `date`, `time`, `v_id`, `status`, `created_at`) VALUES
 (1, 1, 2, '2024-07-01', '9-11', 2, 'pending', 'current_timestamp()'),
-(2, 2, 1, '2024-06-30', '1-3', 4, 'pending', 'current_timestamp()');
+(2, 2, 1, '2024-06-30', '1-3', 4, 'pending', 'current_timestamp()'),
+(3, 4, 4, '2024-07-13', '5pm-7pm', 2, 'pending', '2024-07-10 21:31:33'),
+(4, 4, 1, '2024-07-19', '5pm-7pm', 2, 'pending', '2024-07-10 21:32:28');
 
 -- --------------------------------------------------------
 
@@ -121,10 +123,10 @@ CREATE TABLE `tbl_hospital` (
   `name` varchar(50) NOT NULL,
   `phone` varchar(11) NOT NULL,
   `c_id` int(11) NOT NULL,
+  `address` varchar(150) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(16) NOT NULL,
   `image` varchar(100) NOT NULL,
-  `address` varchar(150) NOT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'deactivate',
   `created_at` varchar(150) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -133,11 +135,12 @@ CREATE TABLE `tbl_hospital` (
 -- Dumping data for table `tbl_hospital`
 --
 
-INSERT INTO `tbl_hospital` (`id`, `name`, `phone`, `c_id`, `email`, `password`, `image`, `address`, `status`, `created_at`) VALUES
-(1, 'Abbasi Shaheed Hospital', '02139926030', 2, 'info@kmc.com', 'abbassi', '1.jpg', 'Khilafat Chowk, Nazimabad, Karachi', 'activate', 'current_timestamp()'),
-(2, 'Shed Hospital', '02136407011', 1, 'info@shedfoundation.org.pk', 'shed123', 'assests/dist/img/2016-04-12 23.49.59.png', 'Plot No. ST 1/2-A Sector 11-C-2 North Karachi, Karachi', 'deactivate', 'current_timestamp()'),
-(3, 'Hamdard Hospital', '02137654321', 3, 'info@hamdard.com', 'hamdard', 'assests/dist/img/logo maahad.png', 'Nazimabad #3, Karachi', 'deactivate', '2024-06-24 00:20:16'),
-(4, 'Baqai Hospital', '02134567890', 2, 'info@baqai.com', 'baqai', 'assests/dist/img/hospital/2016-04-12 23.49.59.png', 'B-Block, Nazimabad #3, Karachi', 'activate', '2024-06-24 17:47:38');
+INSERT INTO `tbl_hospital` (`id`, `name`, `phone`, `c_id`, `address`, `email`, `password`, `image`, `status`, `created_at`) VALUES
+(1, 'Abbasi Shaheed Hospital', '02139926030', 2, 'Khilafat Chowk, Nazimabad, Karachi', 'info@kmc.com', 'abbassi', '1.jpg', 'activate', 'current_timestamp()'),
+(2, 'Shed Hospital', '02136407011', 1, 'Plot No. ST 1/2-A Sector 11-C-2 North Karachi, Karachi', 'info@shedfoundation.org.pk', 'shed123', 'assests/dist/img/2016-04-12 23.49.59.png', 'deactivate', 'current_timestamp()'),
+(3, 'Hamdard Hospital', '02137654321', 3, 'Nazimabad #3, Karachi', 'info@hamdard.com', 'hamdard', 'assests/dist/img/logo maahad.png', 'deactivate', '2024-06-24 00:20:16'),
+(4, 'Baqai Hospital', '02134567890', 2, 'B-Block, Nazimabad #3, Karachi', 'info@baqai.com', 'baqai', 'assests/dist/img/hospital/2016-04-12 23.49.59.png', 'activate', '2024-06-24 17:47:38'),
+(5, 'Saifee Hospital', '03468229956', 1, 'ST-1, Block-F, North Nazimabad, Karachi-74700 (Pakistan)', 'saifee@gmail.com', 'saifee', 'assests/dist/img/Saifee Hospital.jpg', 'deactivate', '2024-07-10 22:25:13');
 
 -- --------------------------------------------------------
 
@@ -181,6 +184,7 @@ CREATE TABLE `tbl_test` (
   `p_id` int(11) NOT NULL,
   `h_id` int(11) NOT NULL,
   `date` varchar(20) NOT NULL,
+  `time` varchar(20) NOT NULL,
   `result` varchar(50) NOT NULL DEFAULT 'process',
   `created_at` varchar(150) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -189,10 +193,14 @@ CREATE TABLE `tbl_test` (
 -- Dumping data for table `tbl_test`
 --
 
-INSERT INTO `tbl_test` (`id`, `p_id`, `h_id`, `date`, `result`, `created_at`) VALUES
-(1, 3, 2, '2024-07-01', 'process', 'current_timestamp()'),
-(2, 1, 4, '2024-06-30', 'process', 'current_timestamp()'),
-(3, 2, 1, '2024-07-01', 'process', 'current_timestamp()');
+INSERT INTO `tbl_test` (`id`, `p_id`, `h_id`, `date`, `time`, `result`, `created_at`) VALUES
+(1, 3, 2, '2024-07-01', '', 'process', 'current_timestamp()'),
+(2, 1, 4, '2024-06-30', '', 'process', 'current_timestamp()'),
+(3, 2, 1, '2024-07-01', '', 'process', 'current_timestamp()'),
+(4, 1, 4, '', '', 'process', '2024-07-09 21:51:18'),
+(5, 2, 4, '', '', 'positive', '2024-07-09 21:51:55'),
+(6, 4, 4, '', '', 'process', '2024-07-09 21:52:17'),
+(7, 4, 1, '', '', 'negative', '2024-07-09 21:53:50');
 
 -- --------------------------------------------------------
 
@@ -286,7 +294,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_appointment`
 --
 ALTER TABLE `tbl_appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_city`
@@ -304,7 +312,7 @@ ALTER TABLE `tbl_feedback`
 -- AUTO_INCREMENT for table `tbl_hospital`
 --
 ALTER TABLE `tbl_hospital`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_patient`
@@ -316,7 +324,7 @@ ALTER TABLE `tbl_patient`
 -- AUTO_INCREMENT for table `tbl_test`
 --
 ALTER TABLE `tbl_test`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_vaccine`
