@@ -31,7 +31,7 @@ if (!isset($_SESSION['patient_session'])){
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">  
-                <li class="btn btn-sm btn-primary mx-3"><a class="text-white" href="get_covid_appointment.php">Get new appointment</a></li>  
+                <li class="btn btn-sm btn-primary mx-3"><a class="text-white" href="get_covid_appointment.php">Apply for Covid Test</a></li>  
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                 <li class="breadcrumb-item"><a href="profile.php">Profile</a></li>
             </ol>
@@ -52,14 +52,14 @@ if (!isset($_SESSION['patient_session'])){
                         <th>Hospital Name</th>
                         <th>Date</th>
                         <th>Time</th>
-                        <th>Vaccine</th>
-                        <th>Status</th>
+                        <th>Result</th>
                         <th>Record Time</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $query = "SELECT tbl_patient.name AS 'p', tbl_hospital.name AS 'h', tbl_vaccine.name AS 'v', tbl_appointment.* FROM tbl_appointment INNER JOIN tbl_patient ON tbl_appointment.p_id = tbl_patient.id INNER JOIN tbl_hospital ON tbl_appointment.h_id = tbl_hospital.id INNER JOIN tbl_vaccine ON tbl_appointment.v_id = tbl_vaccine.id WHERE tbl_patient.id = $_SESSION[patient_session]";
+                    $query = "SELECT tbl_patient.name AS 'p', tbl_hospital.name AS 'h', tbl_test.* FROM tbl_test INNER JOIN tbl_patient ON tbl_test.p_id = tbl_patient.id INNER JOIN tbl_hospital ON tbl_test.h_id = tbl_hospital.id WHERE tbl_patient.id = $_SESSION[patient_session]";
                     $result = mysqli_query($conn, $query);
                     foreach ($result as $row){
                         echo
@@ -67,10 +67,15 @@ if (!isset($_SESSION['patient_session'])){
                             <td>$row[h]</td>
                             <td>$row[date]</td>
                             <td>$row[time]</td>
-                            <td>$row[v]</td>
-                            <td>$row[status]</td>
-                            <td>$row[created_at]</td>
-                        </tr>";
+                            <td>$row[result]</td>
+                            <td>$row[created_at]</td>";
+                            if ($row["result"] != "process"){
+                              echo
+                              "<td>
+                              <a href = '#'>Download Report</a>
+                            </td>";
+                            }
+                        "</tr>";
                     }
                     ?>
                 </tbody>
