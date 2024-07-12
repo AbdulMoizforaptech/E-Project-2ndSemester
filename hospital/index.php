@@ -44,7 +44,7 @@ if (!isset($_SESSION['hospital_session'])){
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <?php
-          // include("include/cards.php");
+          include("include/cards.php");
         ?>
       </div><!-- /.container-fluid -->
     </section>

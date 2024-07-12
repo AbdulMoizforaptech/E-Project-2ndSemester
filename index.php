@@ -5,6 +5,10 @@
         $query = "SELECT * FROM tbl_admin WHERE id = $_SESSION[admin_session]";
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_assoc($result);
+      } elseif (isset($_SESSION['hospital_session'])){
+        $query = "SELECT * FROM tbl_hospital WHERE id = $_SESSION[hospital_session]";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
       } elseif (isset($_SESSION['patient_session'])){
         $query = "SELECT * FROM tbl_patient WHERE id = $_SESSION[patient_session]";
         $result = mysqli_query($conn, $query);
@@ -62,7 +66,7 @@
             <div class="row align-items-center">
 
             <div class="col-6 col-xl-2">
-                <div class="mb-0 site-logo"><a href="index.html" class="mb-0">Covid<span class="text-primary">.</span> </a></div>
+                <div class="mb-0 site-logo"><a href="index.html" class="mb-0"><img src="assests/images/1.png" alt=""style="width:150px;"><span class="text-primary"></span> </a></div>
             </div>
 
             <div class="col-12 col-md-10 d-none d-xl-block">
