@@ -64,26 +64,14 @@ if (!isset($_SESSION['hospital_session'])){
                         
                         <tr>
                             <td><?php echo "$row[p]";?></td>
-                            <td>
-                            <input type="date" class="form-control" id="date" name="date" required min="<?php echo date('Y-m-d', strtotime("+1 days")); ?>">
-                            </td>
-                            <td>
-                            <select class="custom-select" name="time" required>
-                                <option value="" selected hidden>Select Time</option>
-                                <option>9am-11am</option>
-                                <option>11am-1pm</option>
-                                <option>1pm-3pm</option>
-                                <option>3pm-5pm</option>
-                                <option>5pm-7pm</option>
-                                <option>7pm-9pm</option>
-                            </select>
-                            </td>
+                            <td><?php echo "$row[date]";?></td>
+                            <td><?php echo "$row[time]";?></td>
                             <td><?php echo "$row[result]";?></td>
                             <td><?php echo "$row[created_at]";?></td>";
                             <?php if ($row["result"] == "process"){?>
                               <td>
-                              <button type="submit" name="submit" href = "include/covid_test_view.php?id=$row[id]">Submit</a>
-                            </td>
+                                <?php echo "<a href = 'include/covid_test_view.php?id=$row[id]'>View</a>";?>   
+                              </td>
                             <?php } ?>
                         </tr>
                     <?php }
