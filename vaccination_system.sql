@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2024 at 07:48 PM
+-- Generation Time: Jul 14, 2024 at 06:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -198,9 +198,9 @@ INSERT INTO `tbl_test` (`id`, `p_id`, `h_id`, `date`, `time`, `result`, `created
 (2, 1, 4, '2024-06-30', '', 'process', 'current_timestamp()'),
 (3, 2, 1, '2024-07-01', '', 'process', 'current_timestamp()'),
 (4, 1, 4, '', '', 'process', '2024-07-09 21:51:18'),
-(5, 2, 4, '', '', 'positive', '2024-07-09 21:51:55'),
+(5, 2, 4, '', '', 'process', '2024-07-09 21:51:55'),
 (6, 4, 4, '', '', 'process', '2024-07-09 21:52:17'),
-(7, 4, 1, '', '', 'negative', '2024-07-09 21:53:50');
+(7, 4, 1, '', '', 'process', '2024-07-09 21:53:50');
 
 -- --------------------------------------------------------
 
@@ -242,7 +242,10 @@ ALTER TABLE `tbl_admin`
 -- Indexes for table `tbl_appointment`
 --
 ALTER TABLE `tbl_appointment`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `p_id` (`p_id`),
+  ADD KEY `h_id` (`h_id`),
+  ADD KEY `v_id` (`v_id`);
 
 --
 -- Indexes for table `tbl_city`
@@ -254,25 +257,30 @@ ALTER TABLE `tbl_city`
 -- Indexes for table `tbl_feedback`
 --
 ALTER TABLE `tbl_feedback`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `p_id` (`p_id`);
 
 --
 -- Indexes for table `tbl_hospital`
 --
 ALTER TABLE `tbl_hospital`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `c_id` (`c_id`);
 
 --
 -- Indexes for table `tbl_patient`
 --
 ALTER TABLE `tbl_patient`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `c_id` (`c_id`);
 
 --
 -- Indexes for table `tbl_test`
 --
 ALTER TABLE `tbl_test`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `p_id` (`p_id`),
+  ADD KEY `h_id` (`h_id`);
 
 --
 -- Indexes for table `tbl_vaccine`
@@ -331,6 +339,43 @@ ALTER TABLE `tbl_test`
 --
 ALTER TABLE `tbl_vaccine`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbl_appointment`
+--
+ALTER TABLE `tbl_appointment`
+  ADD CONSTRAINT `tbl_appointment_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `tbl_patient` (`id`),
+  ADD CONSTRAINT `tbl_appointment_ibfk_2` FOREIGN KEY (`h_id`) REFERENCES `tbl_hospital` (`id`),
+  ADD CONSTRAINT `tbl_appointment_ibfk_3` FOREIGN KEY (`v_id`) REFERENCES `tbl_vaccine` (`id`);
+
+--
+-- Constraints for table `tbl_feedback`
+--
+ALTER TABLE `tbl_feedback`
+  ADD CONSTRAINT `tbl_feedback_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `tbl_patient` (`id`);
+
+--
+-- Constraints for table `tbl_hospital`
+--
+ALTER TABLE `tbl_hospital`
+  ADD CONSTRAINT `tbl_hospital_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `tbl_city` (`id`);
+
+--
+-- Constraints for table `tbl_patient`
+--
+ALTER TABLE `tbl_patient`
+  ADD CONSTRAINT `tbl_patient_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `tbl_city` (`id`);
+
+--
+-- Constraints for table `tbl_test`
+--
+ALTER TABLE `tbl_test`
+  ADD CONSTRAINT `tbl_test_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `tbl_patient` (`id`),
+  ADD CONSTRAINT `tbl_test_ibfk_2` FOREIGN KEY (`h_id`) REFERENCES `tbl_hospital` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

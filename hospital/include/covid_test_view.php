@@ -19,9 +19,9 @@ $row = mysqli_fetch_assoc($result);
 </head>
 <body>
     <?php
-    include_once 'header.php';
-    include_once 'navbar.php';
-    include_once 'sidebar.php';
+    include_once "header.php";
+    include_once "navbar.php";
+    include_once "sidebar.php";
     ?>
 
     <!-- Content Wrapper. Contains page content -->

@@ -67,10 +67,10 @@ if (!isset($_SESSION['hospital_session'])){
                             <td><?php echo "$row[date]";?></td>
                             <td><?php echo "$row[time]";?></td>
                             <td><?php echo "$row[result]";?></td>
-                            <td><?php echo "$row[created_at]";?></td>";
+                            <td><?php echo "$row[created_at]";?></td>
                             <?php if ($row["result"] == "process"){?>
                               <td>
-                                <?php echo "<a href = 'include/covid_test_view.php?id=$row[id]'>View</a>";?>   
+                                <?php echo "<a href = 'covid_test_view.php?id=$row[id]'>View</a>";?>   
                               </td>
                             <?php } ?>
                         </tr>
