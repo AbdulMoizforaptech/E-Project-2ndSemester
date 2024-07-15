@@ -55,7 +55,7 @@ $row = mysqli_fetch_assoc($result);
                         <form method="POST">
                         <div class="form-group">
                             <label for="pname">Patient Name</label>
-                            <input type="text" class="form-control" id="pname" name="pname" required value="<?php echo $row['p']; ?>" readonly>
+                            <input type="text" class="form-control" id="pname" name="pname" value="<?php echo $row['id']; ?>" required readonly>
                         </div>
                         <div class="form-group">
                             <label for="hname">Hospital Name</label>
