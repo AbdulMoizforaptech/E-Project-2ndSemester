@@ -10,7 +10,7 @@ $query = "SELECT tbl_patient.name AS 'p', tbl_hospital.name AS 'h', tbl_test.* F
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($result);
 ?>
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +55,7 @@ $row = mysqli_fetch_assoc($result);
                         <form method="POST">
                         <div class="form-group">
                             <label for="pname">Patient Name</label>
-                            <input type="text" class="form-control" id="pname" name="pname" value="<?php echo $row['id']; ?>" required readonly>
+                            <input type="text" class="form-control" id="pname" name="pname" value="<?php echo $row['p']; ?>" required readonly>
                         </div>
                         <div class="form-group">
                             <label for="hname">Hospital Name</label>
