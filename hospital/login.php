@@ -64,13 +64,19 @@ if (isset($_SESSION['hospital_session'])){
 
             if (mysqli_num_rows($result)> 0){
                 $row = mysqli_fetch_assoc($result);
-                $_SESSION['hospital_session'] = $row['id'];
-                $_SESSION['username'] = $row['name'];
-                echo 
-                "<script>
-                    alert('login Successful');
-                    window.location.href= 'index.php';
-                </script>";
+
+                if ($row['status'] == "activate") {
+                    $_SESSION['hospital_session'] = $row['id'];
+                    $_SESSION['username'] = $row['name'];
+                    echo 
+                    "<script>
+                        alert('login Successful');
+                        window.location.href= 'index.php';
+                    </script>";
+                } else {
+                    echo "<script> alert('Your account is not active'); </script>";
+                }
+                
             } else {
                 echo 
                 "<script>
