@@ -68,7 +68,7 @@ $fetch= mysqli_fetch_array($result);
                         <div class="form-group">
                             <label for="time">Select the time</label>
                             <select class="custom-select" name="time" required>
-                                <option value="" selected hidden><?php echo isset($fetch["time"]) ? $fetch["time"] : 'Select Time'; ?></option>
+                                <option value="" selected hidden><?php echo isset($fetch["time"]) ? $fetch["time"] : "Select Time"; ?></option>
                                 <option>9am-11am</option>
                                 <option>11am-1pm</option>
                                 <option>1pm-3pm</option>
@@ -78,29 +78,33 @@ $fetch= mysqli_fetch_array($result);
                             </select>
                         </div>  <!-- form-group -->
                         <div class="form-group">
-                            <label for="result">Covid Result</label>
-                            <input type="text" class="form-control" id="result" name="result" required value="<?php echo $fetch["result"]; ?>" readonly>
-                        </div>
+                            <label for="result">Select Patient's Covid Result</label>
+                            <select class="custom-select" name="result" required>
+                                <option value="" selected hidden><?php echo isset($fetch["result"]) ? $fetch["result"] : "process"; ?></option>
+                                <option>Positive</option>
+                                <option>Negative</option>
+                            </select>
+                        </div>  <!-- form-group -->
                         <button type="submit" class="btn btn-primary" name="update">Update</button>
                         </form>
                     </div>  <!-- applicationupdate -->
                     <?php
-                    // if (isset($_POST['update'])){
-                    //     $name = $_POST['name'];
-                    //     $email = $_POST['email'];
-                    //     $password = $_POST['password'];
+                    if (isset($_POST['update'])){
+                        $date = $_POST['date'];
+                        $time = $_POST['time'];
+                        $result = $_POST['result'];
 
-                    //     $query = "UPDATE tbl_admin SET name = '$name', email = '$email', password = '$password' WHERE id = $_SESSION[admin_session]";
-                    //     $result = mysqli_query($conn, $query);
+                        $query = "UPDATE tbl_test SET date = '$date', time = '$time', result = '$result' WHERE id = '$_GET[id]'";
+                        $result = mysqli_query($conn, $query);
 
-                    //     if ($result){
-                    //         echo
-                    //         "<script>
-                    //         alert('Profile updated successfully');
-                    //         window.location.href = 'profile.php';
-                    //         </script>";
-                    //     }
-                    // }
+                        if ($result){
+                            echo
+                            "<script>
+                            alert('Updated successfully');
+                            window.location.href = 'covid_test.php';
+                            </script>";
+                        }
+                    }
                     ?>
                 </div>  <!-- col -->
 
