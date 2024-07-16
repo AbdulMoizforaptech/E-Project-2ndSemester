@@ -6,9 +6,10 @@ if (!isset($_SESSION['hospital_session'])){
   echo "<script>window.location.href= 'login.php'</script>";
 } 
 
-$query = "SELECT tbl_patient.name AS 'p', tbl_hospital.name AS 'h', tbl_test.* FROM tbl_test INNER JOIN tbl_patient ON tbl_test.p_id = tbl_patient.id INNER JOIN tbl_hospital ON tbl_test.h_id = tbl_hospital.id WHERE tbl_test.id = $_GET[id]";
+$query = "SELECT tbl_patient.name as p, tbl_hospital.name as h, tbl_test.* FROM tbl_test INNER JOIN tbl_patient ON tbl_test.p_id = tbl_patient.id INNER JOIN tbl_hospital ON tbl_test.h_id = tbl_hospital.id WHERE tbl_test.id = '$_GET[id]'";
 $result = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($result);
+// $row= mysqli_fetch_row($result);
+$fetch= mysqli_fetch_array($result);
 ?>
 
 <!DOCTYPE html>
@@ -54,12 +55,31 @@ $row = mysqli_fetch_assoc($result);
                     <div class="applicationupdate" style=" padding-left:50px; max-width:600px; width:100%;">
                         <form method="POST">
                         <div class="form-group">
-                            <label for="pname">Patient Name</label>
-                            <input type="text" class="form-control" id="pname" name="pname" value="<?php echo $row['p']; ?>" required readonly>
+                            <input type="text" class="form-control" id="id" name="id" required value="<?php echo $fetch["id"]; ?>" hidden>
                         </div>
                         <div class="form-group">
-                            <label for="hname">Hospital Name</label>
-                            <input type="text" class="form-control" id="hname" name="hname" required value="<?php echo $row['h']; ?>" readonly>
+                            <label for="pname">Patient Name</label>
+                            <input type="text" class="form-control" id="pname" name="pname" required value="<?php echo $fetch["p"]; ?>" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date" name="date" required value="<?php echo isset($fetch["date"]) ? $fetch["date"] : ''; ?>" min="<?php echo date('Y-m-d', strtotime("+1 days")); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Select the time</label>
+                            <select class="custom-select" name="time" required>
+                                <option value="" selected hidden><?php echo isset($fetch["time"]) ? $fetch["time"] : 'Select Time'; ?></option>
+                                <option>9am-11am</option>
+                                <option>11am-1pm</option>
+                                <option>1pm-3pm</option>
+                                <option>3pm-5pm</option>
+                                <option>5pm-7pm</option>
+                                <option>7pm-9pm</option>
+                            </select>
+                        </div>  <!-- form-group -->
+                        <div class="form-group">
+                            <label for="result">Covid Result</label>
+                            <input type="text" class="form-control" id="result" name="result" required value="<?php echo $fetch["result"]; ?>" readonly>
                         </div>
                         <button type="submit" class="btn btn-primary" name="update">Update</button>
                         </form>
