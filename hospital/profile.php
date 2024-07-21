@@ -2,11 +2,11 @@
 include("../admin/config.php");
 session_start();
 
-if (!isset($_SESSION['patient_session'])){
+if (!isset($_SESSION['hospital_session'])){
   echo "<script>window.location.href= 'login.php'</script>";
 } 
 
-$query = "SELECT * FROM tbl_patient WHERE id = $_SESSION[patient_session]";
+$query = "SELECT * FROM tbl_hospital WHERE id = $_SESSION[hospital_session]";
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($result);
 ?>
@@ -15,7 +15,7 @@ $row = mysqli_fetch_assoc($result);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Profile</title>
+    <title>Hospital Profile</title>
 </head>
 <body>
     <?php
@@ -55,23 +55,11 @@ $row = mysqli_fetch_assoc($result);
                         <form method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required value="<?php echo $row['name']; ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="cnic">Cnic</label>
-                            <input type="cnic" class="form-control" id="cnic" name="cnic" required value="<?php echo $row['cnic']; ?>" readonly>
+                            <input type="text" class="form-control" id="name" name="name" required value="<?php echo $row['name']; ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
                             <input type="phone" class="form-control" id="phone" name="phone" required value="<?php echo $row['phone']; ?>" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" name="email" required value="<?php echo $row['email']; ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="text" class="form-control" id="password" name="password" required value="<?php echo $row['password']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="city">City</label>
@@ -99,35 +87,34 @@ $row = mysqli_fetch_assoc($result);
                             </select>
                         </div>  <!-- form-group -->
 
-                             <div class="form-group">
+                        <div class="form-group">
                             <label for="address">Address</label>
                             <input type="address" class="form-control" id="address" name="address" required  placeholder ="Address" value="<?php echo $row['address']; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="gender">Gender</label>
-                            <select class="custom-select" name="gender">
-                                <!-- <option selected><?php echo $row['gender']; ?></option> -->
-                                <option <?php if($row['gender'] == 'Male')echo 'selected' ?> value="Male">Male</option>
-                                <option <?php if($row['gender'] == 'Female')echo 'selected' ?> value="Female">Female</option>
-                                <option <?php if($row['gender'] == 'Other')echo 'selected' ?> value="Other">Other</option>
-                            </select>
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" required value="<?php echo $row['email']; ?>" readonly>
                         </div>
-
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" name="password" required value="<?php echo $row['password']; ?>">
+                        </div>
+                        
                         <button type="submit" class="btn btn-primary" name="update">Update</button>
                         </form>
                     </div>  <!-- updateform -->
                     <?php
                     if (isset($_POST['update'])){
                         $name = $_POST['name'];
-                        $cnic = $_POST['cnic'];
                         $phone = $_POST['phone'];
+                        $city = $_POST['city'];
                         $email = $_POST['email'];
                         $password = $_POST['password'];
-                        $city = $_POST['city'];
                         $address = $_POST['address'];
-                        $gender = $_POST['gender'];
+                        $status = $_POST['status'];
+                        $created = $_POST['created'];
 
-                        $query = "UPDATE tbl_patient SET name = '$name', cnic = '$cnic', phone = '$phone', email = '$email', password = '$password' ,  address = '$address', gender = '$gender' WHERE id = $_SESSION[patient_session]";
+                        $query = "UPDATE tbl_hospital SET name = '$name', phone = '$phone'  , email = '$email', password = '$password' , address = '$address' , status = '$status'  WHERE id = $_SESSION[hospital_session]";
                         $result = mysqli_query($conn, $query);
 
                         if ($result){
@@ -158,10 +145,10 @@ $row = mysqli_fetch_assoc($result);
         if (isset($_POST['updateimg'])){
             $imageName = $_FILES['image']['name'];
             $tmpName = $_FILES['image']['tmp_name'];
-            $path = "assests/dist/img/ $imageName";
+            $path = "assests/dist/img/$imageName";
             move_uploaded_file($tmpName, $path);
 
-            $query = "UPDATE tbl_patient SET image = '$path' WHERE id = $_SESSION[patient_session]";
+            $query = "UPDATE tbl_hospital SET image = '$path' WHERE id = $_SESSION[hospital_session]";
             $result = mysqli_query($conn, $query);
 
             if ($result){

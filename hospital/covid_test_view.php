@@ -63,27 +63,46 @@ $fetch= mysqli_fetch_array($result);
                         </div>
                         <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="date" class="form-control" id="date" name="date" required value="<?php echo isset($fetch["date"]) ? $fetch["date"] : ''; ?>" min="<?php echo date('Y-m-d', strtotime("+1 days")); ?>">
+                            <?php
+                              if($fetch["date"] == ""){
+                                $selectordate = date('Y-m-d', strtotime('+1 day'));
+                                echo "<input type='date' class='form-control' id='date' name='date' required min=$selectordate>";
+                              } else {
+                                  echo "<input type='text' class='form-control' id='date' name='date' required value= $fetch[date] readonly>";
+                              }
+                            ?>
                         </div>
                         <div class="form-group">
                             <label for="time">Select the time</label>
-                            <select class="custom-select" name="time" required>
-                                <option value="" selected hidden><?php echo isset($fetch["time"]) ? $fetch["time"] : "Select Time"; ?></option>
-                                <option>9am-11am</option>
-                                <option>11am-1pm</option>
-                                <option>1pm-3pm</option>
-                                <option>3pm-5pm</option>
-                                <option>5pm-7pm</option>
-                                <option>7pm-9pm</option>
-                            </select>
+                            <?php
+                              if($fetch["time"] == ""){
+                                echo "<select class='custom-select' name='time' required>
+                                        <option value='' selected hidden>Select Time</option>
+                                        <option>9am-11am</option>
+                                        <option>11am-1pm</option>
+                                        <option>1pm-3pm</option>
+                                        <option>3pm-5pm</option>
+                                        <option>5pm-7pm</option>
+                                        <option>7pm-9pm</option>
+                                      </select>";
+                              } else {
+                                  echo "<input type='text' class='form-control' id='time' name='time' required value= '$fetch[time]' readonly>";
+                              }
+                            ?>
                         </div>  <!-- form-group -->
                         <div class="form-group">
                             <label for="result">Select Patient's Covid Result</label>
-                            <select class="custom-select" name="result" required>
-                                <option value="" selected hidden><?php echo isset($fetch["result"]) ? $fetch["result"] : "process"; ?></option>
-                                <option>Positive</option>
-                                <option>Negative</option>
-                            </select>
+                            <?php
+                              if($fetch["time"] == ""){
+                                echo "<input type='text' class='form-control' id='result' name='result' required value= '$fetch[result]' readonly>";
+                              } else {
+                                  echo "<select class='custom-select' name='result' required>
+                                          <option value='' selected hidden>$fetch[result]</option>
+                                          <option>Positive</option>
+                                          <option>Negative</option>
+                                        </select>";
+                              }
+                            ?>
                         </div>  <!-- form-group -->
                         <button type="submit" class="btn btn-primary" name="update">Update</button>
                         </form>

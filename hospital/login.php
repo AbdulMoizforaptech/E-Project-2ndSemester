@@ -38,6 +38,10 @@ if (isset($_SESSION['hospital_session'])){
 </head>
 <body style="background-color: rgba(111, 66, 193, 0.1);">
 
+    <div class="heading mt-5 text-center">
+        <h3>Hospital Login</h3>
+    </div>
+
     <div class="container mt-5" style="max-width:600px; width:100%;">
         <form method="POST">
         <div class="form-group">

@@ -8,9 +8,9 @@ $row = mysqli_fetch_assoc($result);
 <!-- Main Sidebar Container -->
  <aside class="main-sidebar elevation-4" style="background-color: rgba(111, 66, 193, 0.1);">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="assests/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="#" class="brand-link">
+      <img src="../assests/images/1.png" alt="Logo" class="brand-image img-circle elevation-3 w-50" style="opacity: .8">
+      <span class="brand-text font-weight-bold text-dark">Covid-19</span>
     </a>
 
     <!-- Sidebar -->

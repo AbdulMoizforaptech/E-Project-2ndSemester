@@ -66,36 +66,28 @@
             <div class="row align-items-center">
 
             <div class="col-6 col-xl-2">
-                <div class="mb-0 site-logo"><a href="index.html" class="mb-0"><img src="assests/images/1.png" alt=""style="width:150px;"><span class="text-primary"></span> </a></div>
+                <div class="mb-0 site-logo"><a href="#" class="mb-0"><img src="assests/images/1.png" alt=""style="width:150px;"><span class="text-primary"></span> </a></div>
             </div>
 
             <div class="col-12 col-md-10 d-none d-xl-block">
                 <nav class="site-navigation position-relative text-right" role="navigation">
 
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                    <li class="active"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="active"><a href="#" class="nav-link">Home</a></li>
                     <li class="has-children">
-                    <a href="prevention.html" class="nav-link">Prevention</a>
+                    <a href="#prevention" class="nav-link">Prevention</a>
                     <ul class="dropdown">
-                        <li><a href="#" class="nav-link">Stay at home</a></li>
-                        <li><a href="#" class="nav-link">Keep social distancing</a></li>
-                        <li><a href="#" class="nav-link">Wear facemasl</a></li>
-                        <li><a href="#" class="nav-link">Wash your hands</a></li>
+                        <li><a href="#safe" class="nav-link">Stay at home</a></li>
+                        <li><a href="#safe" class="nav-link">Keep social distancing</a></li>
+                        <li><a href="#safe1" class="nav-link">Wear facemask</a></li>
+                        <li><a href="#safe1" class="nav-link">Wash your hands</a></li>
                         <li class="has-children">
-                        <a href="#">More Links</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Menu One</a></li>
-                            <li><a href="#">Menu Two</a></li>
-                            <li><a href="#">Menu Three</a></li>
-                        </ul>
                         </li>
                     </ul>
                     </li>
-                    <li><a href="symptoms.html" class="nav-link">Symptoms</a></li>
-                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="#symptoms" class="nav-link">Symptoms</a></li>
 
-
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="contact.php" class="nav-link">Contact</a></li>
                     <li class="has-children">
                     <a href="" class="nav-link">
                         <?php if(isset($_SESSION['admin_session']))  echo $row['name'];
@@ -184,37 +176,61 @@
                 <p>Coronavirus statistics track the number of confirmed cases, recoveries, and deaths globally, providing crucial data for understanding the spread and impact of the virus.</p>
             </div>
             </div>
-            <div class="row"> 
+            <div class="container">
+        <div class="row"> 
             <div class="col-lg-4">
                 <div class="data">
-                <span class="icon text-primary">
-                    <span class="flaticon-virus"></span>
-                </span>
-                <strong class="d-block number">14,112,077</strong>
-                <span class="label">Active Cases</span>
+                    <span class="icon text-primary">
+                        <span class="flaticon-virus"></span>
+                    </span> 
+                    <strong class="d-block number" id="active-cases">14,112,077</strong>
+                    <span class="label">Active Cases</span>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="data">
-                <span class="icon text-primary">
-                    <span class="flaticon-virus"></span>
-                </span>
-                <strong class="d-block number">595,685</strong>
-                <span class="label">Deaths</span>
+                    <span class="icon text-primary">
+                        <span class="flaticon-virus"></span>
+                    </span>
+                    <strong class="d-block number" id="deaths">595,685</strong>
+                    <span class="label">Deaths</span>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="data">
-                <span class="icon text-primary">
-                    <span class="flaticon-virus"></span>
-                </span>
-                <strong class="d-block number">8,397,665</strong>
-                <span class="label">Recovered Cases</span>
+                    <span class="icon text-primary">
+                        <span class="flaticon-virus"></span>
+                    </span>
+                    <strong class="d-block number" id="recovered-cases">8,397,665</strong>
+                    <span class="label">Recovered Cases</span>
                 </div>
             </div>
             </div>
         </div>
         </div>
+
+        <script>
+      function animateValue(id, start, end, duration) {
+            let range = end - start;
+            let current = start;
+            let increment = end > start ? 1 : -1;
+            let stepTime = Math.abs(Math.floor(duration / range));
+            let obj = document.getElementById(id);
+            let timer = setInterval(function() {
+                current += increment;
+                obj.innerHTML = current.toLocaleString();
+                if (current == end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            animateValue("active-cases", 14110000, 14112077, 1);
+            animateValue("deaths", 595000, 595685, 1);
+            animateValue("recovered-cases", 8394000, 8397665, 1);
+        });
+</script>
 
 
         <div class="site-section">
@@ -317,7 +333,7 @@
 
 
         <div class="site-section bg-primary-light">
-        <div class="container">
+        <div class="container" id="safe">
             <div class="row align-items-center">
             <div class="col-lg-6">
 
@@ -333,7 +349,7 @@
                     </div>
                     </div>
 
-                    <div class="media-v1 bg-1">
+                    <div class="media-v1 bg-1" id="safe1">
                     <div class="icon-wrap">
                         <span class="flaticon-patient"></span>
                     </div>
@@ -427,7 +443,7 @@
         </div>
 
 
-        <div class="site-section bg-primary-light">
+        <div class="site-section bg-primary-light"  id="symptoms">
         <div class="container">
             <div class="row mb-5">
             <div class="col-lg-7 mx-auto text-center">
