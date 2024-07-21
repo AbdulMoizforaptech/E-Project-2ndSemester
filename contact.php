@@ -25,7 +25,6 @@
     <title>COVID TEST and VACCINATION System</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 
     <link rel="stylesheet" href="assests/fonts/icomoon/style.css">
 
@@ -56,26 +55,24 @@
 }
 body{
   min-height: 100vh;
-  width: 100%;
+ 
   background: rgba(111, 66, 193, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .center{
-    display: flex;
-  
-  align-items: center;
-  justify-content: center;
- 
-  margin: 20px 0;
-  border-radius: 10px;
-  transition: all 0.3s ease-in-out;
+    margin: auto;
+    width: 85%;
+    padding: 10px;
 }
 .container1{
-  width: 85%;
+ 
+  display: flex;
+  align-content: center;
   background: #fff;
   border-radius: 6px;
+  padding: 20px 60px 30px 40px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .container1 .content{
@@ -86,9 +83,12 @@ body{
 .container1 .content .left-side{
   width: 25%;
   height: 100%;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 15px;
+  position: relative;
 }
 .content .left-side::before{
   content: '';
@@ -106,17 +106,18 @@ body{
 }
 .content .left-side .details i{
   font-size: 30px;
-  color: #6f42c1;
+  color: #3e2093;
   margin-bottom: 10px;
 }
 .content .left-side .details .topic{
   font-size: 18px;
   font-weight: 500;
+  color: #6f42c1;
 }
 .content .left-side .details .text-one,
 .content .left-side .details .text-two{
   font-size: 14px;
-  color: grey;
+  color: gray;
 }
 .container1 .content .right-side{
   width: 75%;
@@ -174,7 +175,7 @@ body{
     width: 90%;
     padding: 30px 40px 40px 35px ;
   }
-  .container1 .content .right-side{
+  .container1.content .right-side{
    width: 75%;
    margin-left: 55px;
 }
@@ -201,120 +202,124 @@ body{
    width: 100%;
    margin-left: 0;
  }
-}1
+}
     </style>
     
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
-<div class="site-wrap">
+    <div class="site-wrap">
 
-<div class="site-mobile-menu site-navbar-target">
-<div class="site-mobile-menu-header">
-    <div class="site-mobile-menu-close mt-3">
-    <span class="icon-close2 js-menu-toggle"></span>
-    </div>
-</div>
-<div class="site-mobile-menu-body"></div>
-</div>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+        </div>
+
+        
+        <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+
+        <div class="container">
+            <div class="row align-items-center">
+
+            <div class="col-6 col-xl-2">
+                <div class="mb-0 site-logo"><a href="#" class="mb-0"><img src="assests/images/1.png" alt=""style="width:150px;"><span class="text-primary"></span> </a></div>
+            </div>
+
+            <div class="col-12 col-md-10 d-none d-xl-block">
+                <nav class="site-navigation position-relative text-right" role="navigation">
+
+                <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                    <li><a href="index.php" class="nav-link">Home</a></li>
+                    <li class="has-children">
+                    <a href="#prevention" class="nav-link">Prevention</a>
+                    <ul class="dropdown">
+                        <li><a href="#safe" class="nav-link">Stay at home</a></li>
+                        <li><a href="#safe" class="nav-link">Keep social distancing</a></li>
+                        <li><a href="#safe1" class="nav-link">Wear facemask</a></li>
+                        <li><a href="#safe1" class="nav-link">Wash your hands</a></li>
+                        <li class="has-children">
+                        </li>
+                    </ul>
+                    </li>
+                    <li><a href="#symptoms" class="nav-link">Symptoms</a></li>
+                    <li><a href="faqs.php" class="nav-link">FAQS</a></li>
+                    <li class="active"><a href="#" class="nav-link">Contact</a></li>
+                    <li class="has-children">
+                    <a href="" class="nav-link">
+                        <?php if(isset($_SESSION['admin_session']))  echo $row['name'];
+                        elseif(isset($_SESSION['hospital_session'])) echo $row['name'];
+                        elseif(isset($_SESSION['patient_session'])) echo $row['name']; else echo "Login"; ?>
+                    </a>
+                    <ul class="dropdown">
+                        <li><a href="admin/login.php" class="nav-link">Admin</a></li>
+                        <li><a href="hospital/login.php" class="nav-link">Hospital</a></li>
+                        <li><a href="patient/login.php" class="nav-link">Patient</a></li>
+                    </ul>
+                    </li>
+                    <!-- <li><a href="#" class="nav-link" onclick="GoTOLogin()"><?php if(isset($_SESSION['admin_session'])) echo $row['name']; else echo "Login"; ?></a></li> -->
+                </ul>
+                </nav>
+            </div>
 
 
-<header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+            <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
 
-<div class="container">
-    <div class="row align-items-center">
+            </div>
+        </div>
 
-    <div class="col-6 col-xl-2">
-        <div class="mb-0 site-logo"><a href="#" class="mb-0"><img src="assests/images/1.png" alt=""style="width:150px;"><span class="text-primary"></span> </a></div>
-    </div>
-
-    <div class="col-12 col-md-10 d-none d-xl-block">
-        <nav class="site-navigation position-relative text-right" role="navigation">
-
-        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-            <li><a href="index.php" class="nav-link">Home</a></li>
-            <li class="has-children">
-            <a href="#prevention" class="nav-link">Prevention</a>
-            <ul class="dropdown">
-                <li><a href="#safe" class="nav-link">Stay at home</a></li>
-                <li><a href="#safe" class="nav-link">Keep social distancing</a></li>
-                <li><a href="#safe1" class="nav-link">Wear facemask</a></li>
-                <li><a href="#safe1" class="nav-link">Wash your hands</a></li>
-                <li class="has-children">
-                </li>
-            </ul>
-            </li>
-            <li><a href="#symptoms" class="nav-link">Symptoms</a></li>
-
-            <li><a href="contact.php" class="nav-link">Contact</a></li>
-            <li class="has-children">
-            <a href="" class="nav-link">
-                <?php if(isset($_SESSION['admin_session']))  echo $row['name'];
-                elseif(isset($_SESSION['hospital_session'])) echo $row['name'];
-                elseif(isset($_SESSION['patient_session'])) echo $row['name']; else echo "Login"; ?>
-            </a>
-            <ul class="dropdown">
-                <li><a href="admin/login.php" class="nav-link">Admin</a></li>
-                <li><a href="hospital/login.php" class="nav-link">Hospital</a></li>
-                <li><a href="patient/login.php" class="nav-link">Patient</a></li>
-            </ul>
-            </li>
-            <!-- <li><a href="#" class="nav-link" onclick="GoTOLogin()"><?php if(isset($_SESSION['admin_session'])) echo $row['name']; else echo "Login"; ?></a></li> -->
-        </ul>
-        </nav>
-    </div>
+        </header>
 
 
-    <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
-
-    </div>
-</div>
-
-</header>
-
-<div class="center">       
+<div class="center">
   <div class="container1">
     <div class="content">
       <div class="left-side">
         <div class="address details">
           <i class="fas fa-map-marker-alt"></i>
           <div class="topic">Address</div>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14472.55141650622!2d67.0330334!3d24.9273733!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f90157042d3%3A0x93d609e8bec9a880!2sAptech%20Computer%20Education%20North%20Nazimabad%20Center!5e0!3m2!1sen!2s!4v1721438892760!5m2!1sen!2s" width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d17210.619708231796!2d67.03632496884482!3d24.929102418535795!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f90157042d3%3A0x93d609e8bec9a880!2sAptech%20Computer%20Education%20North%20Nazimabad%20Center!5e0!3m2!1sen!2s!4v1721316182992!5m2!1sen!2s" width="150px" height="150px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="phone details">
           <i class="fas fa-phone-alt"></i>
           <div class="topic">Phone</div>
-          <div class="text-one">+0098 9893 5647</div>
-          <div class="text-two">+0096 3434 5678</div>
+          <div class="text-one">+0092 346-3224382</div>
+          <div class="text-two">+0092 345-6157823</div>
+          <div class="text-two">+0092 311-2359350</div>
         </div>
         <div class="email details">
           <i class="fas fa-envelope"></i>
           <div class="topic">Email</div>
-          <div class="text-one">codinglab@gmail.com</div>
-          <div class="text-two">info.codinglab@gmail.com</div>
+          <div class="text-one">abdulmoizforaptech@gmail.com</div>
+          <div class="text-two">muhammadshamoonhussain@gmail.com</div>
+          <div class="text-two">ar5910822@gmail.com</div>
         </div>
       </div>
       <div class="right-side">
         <div class="topic-text">Send us a message</div>
         <p>If you have any work from me or any types of quries related to my tutorial, you can send me message from here. It's my pleasure to help you.</p>
-      <form action="#">
-        <div class="input-box">
-          <input type="text" placeholder="Enter your name" required>
-        </div>
-        <div class="input-box">
-          <input type="text" placeholder="Enter your email" required>
-        </div>
-        <div class="input-box message-box">
-          
-        </div>
-        <div class="button">
-          <input type="submit" value="Send Now" >
-        </div>
-      </form>
+        <form action="#">
+    <div class="input-box">
+        <input type="text" placeholder="Enter your name" required>
+    </div>
+    <div class="input-box">
+        <input type="email" placeholder="Enter your email" required>
+    </div>
+    <div class="input-box message-box">
+        <!-- If you have additional fields, you can add them here -->
+    </div>
+    <div class="button">
+        <input type="submit" value="Send Now"> <!-- Changed type to submit -->
+    </div>
+</form>
+
     </div>
     </div>
   </div>
-  </div> 
+  </div>
 </body>
 </html>

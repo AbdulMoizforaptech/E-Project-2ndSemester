@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2024 at 04:00 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Jul 21, 2024 at 06:48 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -600,27 +600,6 @@ INSERT INTO `tbl_city` (`id`, `name`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_feedback`
---
-
-CREATE TABLE `tbl_feedback` (
-  `id` int(11) NOT NULL,
-  `p_id` int(11) NOT NULL,
-  `message` varchar(350) NOT NULL,
-  `status` varchar(10) NOT NULL DEFAULT 'hide',
-  `created_at` varchar(150) NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_feedback`
---
-
-INSERT INTO `tbl_feedback` (`id`, `p_id`, `message`, `status`, `created_at`) VALUES
-(1, 2, 'Testing feedback', 'show', 'current_timestamp()');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_hospital`
 --
 
@@ -642,7 +621,7 @@ CREATE TABLE `tbl_hospital` (
 --
 
 INSERT INTO `tbl_hospital` (`id`, `name`, `phone`, `c_id`, `address`, `email`, `password`, `image`, `status`, `created_at`) VALUES
-(1, 'Abbasi Shaheed Hospital', '02139926030', 2, 'Khilafat Chowk, Nazimabad, Karachi.', 'info@kmc.com', 'abbassi', 'assests/dist/img/mart.png', '', 'current_timestamp()'),
+(1, 'Abbasi Shaheed Hospital', '02139926030', 2, 'Khilafat Chowk, Nazimabad, Karachi.', 'info@kmc.com', 'abbassi', 'assests/dist/img/mart.png', 'activate', 'current_timestamp()'),
 (2, 'Shed Hospital', '02136407011', 1, 'Plot No. ST 1/2-A Sector 11-C-2 North Karachi, Karachi', 'info@shedfoundation.org.pk', 'shed123', 'assests/dist/img/2016-04-12 23.49.59.png', 'deactivate', 'current_timestamp()'),
 (3, 'Hamdard Hospital', '02137654321', 3, 'Nazimabad #3, Karachi', 'info@hamdard.com', 'hamdard', 'assests/dist/img/logo maahad.png', 'deactivate', '2024-06-24 00:20:16'),
 (4, 'Baqai Hospital', '02134567890', 2, 'B-Block, Nazimabad #3, Karachi', 'info@baqai.com', 'baqai', 'assests/dist/img/hospital/2016-04-12 23.49.59.png', 'activate', '2024-06-24 17:47:38'),
@@ -760,13 +739,6 @@ ALTER TABLE `tbl_city`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_feedback`
---
-ALTER TABLE `tbl_feedback`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `p_id` (`p_id`);
-
---
 -- Indexes for table `tbl_hospital`
 --
 ALTER TABLE `tbl_hospital`
@@ -817,12 +789,6 @@ ALTER TABLE `tbl_city`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=510;
 
 --
--- AUTO_INCREMENT for table `tbl_feedback`
---
-ALTER TABLE `tbl_feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `tbl_hospital`
 --
 ALTER TABLE `tbl_hospital`
@@ -857,12 +823,6 @@ ALTER TABLE `tbl_appointment`
   ADD CONSTRAINT `tbl_appointment_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `tbl_patient` (`id`),
   ADD CONSTRAINT `tbl_appointment_ibfk_2` FOREIGN KEY (`h_id`) REFERENCES `tbl_hospital` (`id`),
   ADD CONSTRAINT `tbl_appointment_ibfk_3` FOREIGN KEY (`v_id`) REFERENCES `tbl_vaccine` (`id`);
-
---
--- Constraints for table `tbl_feedback`
---
-ALTER TABLE `tbl_feedback`
-  ADD CONSTRAINT `tbl_feedback_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `tbl_patient` (`id`);
 
 --
 -- Constraints for table `tbl_hospital`

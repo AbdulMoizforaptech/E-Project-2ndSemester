@@ -86,7 +86,7 @@
                     </ul>
                     </li>
                     <li><a href="#symptoms" class="nav-link">Symptoms</a></li>
-
+                    <li><a href="faqs.php" class="nav-link">FAQS</a></li>
                     <li><a href="contact.php" class="nav-link">Contact</a></li>
                     <li class="has-children">
                     <a href="" class="nav-link">
@@ -504,76 +504,7 @@
         </div>
 
 
-        <div class="site-section">
-        <div class="container">
-            <div class="row mb-5">
-            <div class="col-lg-7 mx-auto text-center">
-                <h2 class="mb-4 section-heading">News &amp; Articles</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex officia quas, modi sit eligendi numquam!</p>
-            </div>
-            </div>
-
-            <div class="row">
-            <div class="col-lg-4">
-                <div class="post-entry">
-                <a href="#" class="thumb">
-                    <span class="date">30 Jul, 2020</span>
-                    <img src="assests/images/hero_1.jpg" alt="Image" class="img-fluid">
-                </a>
-                <div class="post-meta text-center">
-                    <a href="">
-                    <span class="icon-user"></span>
-                    <span>Admin</span>
-                    </a>
-                    <a href="#">
-                    <span class="icon-comment"></span>
-                    <span>3 Comments</span>
-                    </a>
-                </div>
-                <h3><a href="#">How Coronavirus Very Contigous</a></h3>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="post-entry">
-                <a href="#" class="thumb">
-                    <span class="date">30 Jul, 2020</span>
-                    <img src="assests/images/hero_2.jpg" alt="Image" class="img-fluid">
-                </a>
-                <div class="post-meta text-center">
-                    <a href="">
-                    <span class="icon-user"></span>
-                    <span>Admin</span>
-                    </a>
-                    <a href="#">
-                    <span class="icon-comment"></span>
-                    <span>3 Comments</span>
-                    </a>
-                </div>
-                <h3><a href="#">How Coronavirus Very Contigous</a></h3>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="post-entry">
-                <a href="#" class="thumb">
-                    <span class="date">30 Jul, 2020</span>
-                    <img src="assests/images/hero_1.jpg" alt="Image" class="img-fluid">
-                </a>
-                <div class="post-meta text-center">
-                    <a href="">
-                    <span class="icon-user"></span>
-                    <span>Admin</span>
-                    </a>
-                    <a href="#">
-                    <span class="icon-comment"></span>
-                    <span>3 Comments</span>
-                    </a>
-                </div>
-                <h3><a href="#">How Coronavirus Very Contigous</a></h3>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
+        
 
         <div class="site-footer">
         <div class="container">
@@ -626,7 +557,7 @@
                 <div class="border-top pt-5">
                 <p class="copyright"><small>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved.
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
 
                 </div>
