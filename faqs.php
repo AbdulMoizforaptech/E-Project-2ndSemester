@@ -115,57 +115,7 @@
         </header>
 
 
-        <div class="hero-v1">
-        <div class="container">
-            <div class="row align-items-center">
-            <div class="col-lg-6 mr-auto text-center text-lg-left">
-                <span class="d-block subheading">Covid-19 Awareness</span>
-                <h1 class="heading mb-3">Stay Safe. Stay Home.</h1>
-                <p class="mb-5">To stay safe during the COVID-19 pandemic, it's crucial to stay home as much as possible, reducing your exposure to the virus.</p>
-                <p class="mb-4"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#prevent">How to prevent</a></p>
-
-
-                
-                <!-- Modal -->
-                <div class="modal fade" id="prevent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">How to prevent from Corona Virus?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                    <p>To prevent the spread of the coronavirus, follow these key guidelines:</p>
-                    <p><b>1. Practice Good Hygiene:</b> Wash your hands frequently with soap and water for at least 20 seconds, use hand sanitizer with at least 60% alcohol, and avoid touching your face.</p>
-                    <p><b>2. Wear a Mask:</b> Wear a mask that covers your nose and mouth in public settings, especially where social distancing measures are difficult to maintain.</p>
-                    <p><b>3. Maintain Social Distance:</b> Keep a distance of at least 6 feet (about 2 meters) from others, particularly those who are not in your household.</p>
-                    <p><b>4. Avoid Crowded Places and Close Contact:</b> Avoid large gatherings and close contact with individuals who are sick.</p>
-                    <p><b>5. Clean and Disinfect:</b> Regularly clean and disinfect frequently touched surfaces daily, such as doorknobs, light switches, and phones.</p>
-                    <p><b>6. Monitor Your Health:</b> Be alert for symptoms such as fever, cough, and shortness of breath. If you feel unwell, stay home and seek medical advice.</p>
-                    <p><b>7. Get Vaccinated:</b> Receive the COVID-19 vaccine and any recommended booster doses to help protect against severe illness and reduce the spread of the virus.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
-                    </div>
-                </div>
-                </div>  <!-- Modal -->
-
-
-            </div>
-            <div class="col-lg-6">
-                <figure class="illustration">
-                <img src="assests/images/illustration.png" alt="Image" class="img-fluid">
-                </figure>
-            </div>
-            <div class="col-lg-6"></div>
-            </div>
-        </div>
-        </div>
-
-        <h2 class="section-heading col-md-5 text-center mx-auto" style="padding: 30px;" >Coronavirus disease (COVID-19): Variants of SARS-COV-2</h2>
+        <h2 class="section-heading col-md-5 text-center mx-auto mt-5" style="padding-top: 70px;" >Coronavirus disease (COVID-19): Variants of SARS-COV-2</h2>
         <div class="site-section stats">
         <div class="container">
             <div class="row mb-3">
@@ -176,8 +126,8 @@
                  Since 2020, SARS-CoV-2, the virus that causes COVID-19, has been spreading and changing globally. These changes have led to the detection of variants in many countries around the world. The more significant of these variants are grouped in three different ways – variants under monitoring, variants of interest and variants of concern</p>
             </div>
             </div>
-        <div>
-        <div>  
+        </div>
+        </div>  
             
         <div class="site-section stats">
         <div class="container">
@@ -188,8 +138,8 @@
                 <p>A Variant Under Monitoring (VUM) is a term used to signal to public health authorities that a SARS-CoV-2 variant may require prioritized attention and monitoring. The main objective of this category is to investigate if this variant (and others closely related to it) may pose an additional threat to global public health as compared to other circulating variants.</p>
             </div>
             </div>
-        <div>
-        <div>  
+        </div>
+        </div>  
         <div class="site-section stats">
         <div class="container">
             <div class="row mb-3">
@@ -205,8 +155,8 @@
                 <li>get tested if you have symptoms or you’ve been exposed to SARS-CoV-2.</li></p>
             </div>
             </div>
-        <div>
-        <div>  
+        </div>
+        </div>  
         <div class="site-section stats">
         <div class="container">
             <div class="row mb-3">
@@ -226,8 +176,8 @@
        </p>
             </div>
             </div>
-        <div>
-        <div>  
+        </div>
+        </div>  
 
         <div class="site-section stats">
         <div class="container">
@@ -237,8 +187,8 @@
                 <p>IThe COVID-19 vaccines with WHO Emergency Use Listing (EUL) or approval from stringent regulatory authorities (SRAs) provide different levels of protection against infection, mild disease, severe disease, hospitalization, and death, and are most effective against severe disease. Research is ongoing by thousands of scientists around the world to better understand how new virus mutations and variants affect the effectiveness of the different COVID-19 vaccines.</p>
             </div>
             </div>
-        <div>
-        <div>  
+        </div>
+        </div>  
 
 
         
