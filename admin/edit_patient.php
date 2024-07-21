@@ -172,7 +172,7 @@ if (!isset($_SESSION['admin_session'])){
         if (isset($_POST['updateimg'])){
             $imageName = $_FILES['image']['name'];
             $tmpName = $_FILES['image']['tmp_name'];
-            $path = "assests/dist/img/patient/$imageName";
+            $path = "../patient/assests/dist/img/$imageName";
             move_uploaded_file($tmpName, $path);
 
             $query = "UPDATE tbl_patient SET image = '$path' WHERE id = $_GET[id]";

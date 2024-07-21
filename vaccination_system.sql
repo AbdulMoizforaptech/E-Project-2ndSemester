@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2024 at 06:48 PM
+-- Generation Time: Jul 21, 2024 at 07:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id`, `name`, `email`, `password`, `image`, `created_at`) VALUES
-(1, 'Abdul Moiz', 'abdulmoizforaptech@gmail.com', 'admin123', 'assests/dist/img/24 copy.jpg', 'current_timestamp()');
+(1, 'Abdul Moiz Hassan', 'abdulmoizforaptech@gmail.com', 'admin1234', 'assests/dist/img/avatar5.png', 'current_timestamp()');
 
 -- --------------------------------------------------------
 
@@ -621,7 +621,7 @@ CREATE TABLE `tbl_hospital` (
 --
 
 INSERT INTO `tbl_hospital` (`id`, `name`, `phone`, `c_id`, `address`, `email`, `password`, `image`, `status`, `created_at`) VALUES
-(1, 'Abbasi Shaheed Hospital', '02139926030', 2, 'Khilafat Chowk, Nazimabad, Karachi.', 'info@kmc.com', 'abbassi', 'assests/dist/img/mart.png', 'activate', 'current_timestamp()'),
+(1, 'Abbasi Shaheed Hospital', '02139926030', 1, 'Khilafat Chowk, Nazimabad, Karachi.', 'info@kmc.com', 'abbassi', 'assests/dist/img/hospital/2016-04-12 23.49.59.png', 'activate', 'current_timestamp()'),
 (2, 'Shed Hospital', '02136407011', 1, 'Plot No. ST 1/2-A Sector 11-C-2 North Karachi, Karachi', 'info@shedfoundation.org.pk', 'shed123', 'assests/dist/img/2016-04-12 23.49.59.png', 'deactivate', 'current_timestamp()'),
 (3, 'Hamdard Hospital', '02137654321', 3, 'Nazimabad #3, Karachi', 'info@hamdard.com', 'hamdard', 'assests/dist/img/logo maahad.png', 'deactivate', '2024-06-24 00:20:16'),
 (4, 'Baqai Hospital', '02134567890', 2, 'B-Block, Nazimabad #3, Karachi', 'info@baqai.com', 'baqai', 'assests/dist/img/hospital/2016-04-12 23.49.59.png', 'activate', '2024-06-24 17:47:38'),
@@ -653,10 +653,10 @@ CREATE TABLE `tbl_patient` (
 --
 
 INSERT INTO `tbl_patient` (`id`, `name`, `cnic`, `phone`, `email`, `password`, `c_id`, `address`, `gender`, `image`, `status`, `created_at`) VALUES
-(1, 'Patient 1', '1234567890123', '03123456789', 'patient1@gmail.com', 'patient1', 3, 'Nazimabad,', 'Male', '', 'activate', 'current_timestamp()'),
-(2, 'Patient 2', '4220109876543', '03071234567', 'patient2@gmail.com', 'patient2', 1, 'Khilafat Chowk, Nazimabad, Karachi', 'Female', 'assests/dist/img/patient/1.jpg', 'activate', '2024-06-24 22:07:04'),
-(3, 'Patient 3', '3234567890123', '03121234567', 'patient3@gmail.com', 'patient3', 3, 'Khilafat Chowk, Nazimabad, Karachi', 'Other', 'assests/dist/img/patient/2.jpg', 'deactivate', '2024-06-24 22:14:31'),
-(4, 'Abdul Moiz', '1234567890123', '03463224382', 'abdulmoizforaptech@gmail.com', '123', 3, 'Nazimabad #3, Karachi', 'Male', 'assests/dist/img/ mart.png', 'activate', '2024-07-07 20:47:59');
+(1, 'Patient1', '1234567890123', '03123456789', 'patient1@gmail.com', 'patient1', 91, 'Nazimabad,', 'Male', '', 'deactivate', 'current_timestamp()'),
+(2, 'Patient 2', '4220109876543', '03071234567', 'patient2@gmail.com', 'patient2', 1, 'Khilafat Chowk, Nazimabad, Karachi', 'Female', '', 'activate', '2024-06-24 22:07:04'),
+(3, 'Patient 3', '3234567890123', '03121234567', 'patient3@gmail.com', 'patient3', 3, 'Khilafat Chowk, Nazimabad, Karachi', 'Other', '', 'deactivate', '2024-06-24 22:14:31'),
+(4, 'Abdul Moiz', '1234567890123', '03463224382', 'abdulmoizforaptech@gmail.com', '123', 3, 'Nazimabad #3, Karachi', 'Male', '', 'activate', '2024-07-07 20:47:59');
 
 -- --------------------------------------------------------
 
