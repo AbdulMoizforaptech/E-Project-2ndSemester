@@ -39,7 +39,7 @@ if (isset($_SESSION['patient_session'])){
 <body style="background-color: rgba(111, 66, 193, 0.1);">
 
     <div class="container mt-5" style="max-width:600px; width:100%;">
-        <form method="POST"  enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">Your Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name..." required>

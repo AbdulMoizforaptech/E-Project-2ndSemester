@@ -55,6 +55,10 @@ if (isset($_SESSION['admin_session'])){
         <button type="submit" class="btn btn-primary" name="login">Login</button>
         </form>
 
+        <div class="container mt-2 text-black">
+            <a href="../index.php">Goto Website</a>
+        </div>
+
         <?php
         if (isset($_POST['login'])) {
             $email = $_POST['email'];

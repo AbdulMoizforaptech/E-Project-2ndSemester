@@ -1,11 +1,7 @@
 <?php
     include("admin/config.php");
     session_start();
-    if (isset($_SESSION['admin_session'])){
-        $query = "SELECT * FROM tbl_admin WHERE id = $_SESSION[admin_session]";
-        $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_assoc($result);
-      } elseif (isset($_SESSION['hospital_session'])){
+    if (isset($_SESSION['hospital_session'])){
         $query = "SELECT * FROM tbl_hospital WHERE id = $_SESSION[hospital_session]";
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_assoc($result);
@@ -90,12 +86,10 @@
                     <li><a href="contact.php" class="nav-link">Contact</a></li>
                     <li class="has-children">
                     <a href="" class="nav-link">
-                        <?php if(isset($_SESSION['admin_session']))  echo $row['name'];
-                        elseif(isset($_SESSION['hospital_session'])) echo $row['name'];
+                        <?php if(isset($_SESSION['hospital_session'])) echo $row['name'];
                         elseif(isset($_SESSION['patient_session'])) echo $row['name']; else echo "Login"; ?>
                     </a>
                     <ul class="dropdown">
-                        <li><a href="admin/login.php" class="nav-link">Admin</a></li>
                         <li><a href="hospital/login.php" class="nav-link">Hospital</a></li>
                         <li><a href="patient/login.php" class="nav-link">Patient</a></li>
                     </ul>

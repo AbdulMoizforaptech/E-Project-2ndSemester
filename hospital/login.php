@@ -56,7 +56,8 @@ if (isset($_SESSION['hospital_session'])){
         </form>
 
         <div class="container mt-2 text-black">
-            <a href="register.php">Don't have an account. Signup</a>
+            <a href="register.php">Don't have an account. Signup </a>||
+            <a href="../index.php"> Goto Website</a>
         </div>
 
         <?php

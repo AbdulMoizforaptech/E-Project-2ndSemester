@@ -39,7 +39,7 @@ if (isset($_SESSION['hospital_session'])){
 <body style="background-color: rgba(111, 66, 193, 0.1);">
 
     <div class="container mt-5" style="max-width:600px; width:100%;">
-        <form method="POST"  enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">Hospital Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Enter hospital name..." required>
@@ -103,9 +103,9 @@ if (isset($_SESSION['hospital_session'])){
             $address = $_POST['address'];
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $image = $_FILES['image']['name'];
+            $imageName = $_FILES['image']['name'];
             $tmpName = $_FILES['image']['tmp_name'];
-            $path = "assests/dist/img/$image";
+            $path = "assests/dist/img/$imageName";
             move_uploaded_file($tmpName, $path);
  
             $query = "INSERT INTO tbl_hospital (name, phone, c_id, address, email, password, image) VALUES ('$name', '$phone', '$city', '$address', '$email', '$password', '$path')";
